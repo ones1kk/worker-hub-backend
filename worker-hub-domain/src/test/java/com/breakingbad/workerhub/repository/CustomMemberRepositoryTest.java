@@ -14,17 +14,18 @@ class CustomMemberRepositoryTest {
     private CustomMemberRepository memberRepository;
 
     @Test
-    void add() {
+    void save() {
         // given
         memberRepository.save(new CustomMember(1L, "userA"));
 
         // when
-        CustomMember saved = memberRepository.findById(1L)
+        CustomMember member = memberRepository.findById(1L)
                 .orElse(null);
 
         // then
-        assertThat(saved).isNotNull();
-        assertThat(saved.getId()).isEqualTo(1L);
+        assertThat(member).isNotNull();
+        assertThat(member.getId()).isEqualTo(1L);
+        assertThat(member.getName()).isEqualTo("userA");
     }
 
 }
