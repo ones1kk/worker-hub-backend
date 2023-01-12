@@ -1,0 +1,36 @@
+plugins {
+    id "com.ewerk.gradle.plugins.querydsl" version "1.0.10"
+}
+
+bootJar { enabled = false }
+jar { enabled = true }
+
+dependencies {
+    api 'org.springframework.boot:spring-boot-starter-data-jpa'
+    api 'com.github.gavlyukovskiy:p6spy-spring-boot-starter:1.8.1'
+
+    api 'com.querydsl:querydsl-jpa:5.0.0'
+    api 'com.querydsl:querydsl-apt:5.0.0'
+
+    runtimeOnly 'com.h2database:h2'
+}
+
+def querydslDir = "$buildDir/generated/querydsl"
+
+querydsl {
+    jpa = true
+    querydslSourcesDir = querydslDir
+}
+
+sourceSets {
+    main.java.srcDir querydslDir
+}
+
+
+compileQuerydsl {
+    options.annotationProcessorPath = configurations.querydsl
+}
+
+configurations {
+    querydsl.extendsFrom compileClasspath
+}
