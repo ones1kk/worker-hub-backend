@@ -24,4 +24,8 @@ public class CustomMemberService {
         memberRepository.save(member);
     }
 
+    public CustomMember findById(Long id) {
+        return memberRepository.findById(id)
+                .orElseThrow(RuntimeException::new);
+    }
 }
