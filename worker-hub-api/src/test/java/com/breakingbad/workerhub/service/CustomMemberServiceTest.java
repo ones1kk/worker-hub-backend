@@ -13,9 +13,9 @@ import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.core.api.Assertions.assertThatNoException;
+import static org.assertj.core.api.Assertions.*;
 import static org.mockito.BDDMockito.given;
 
 @ExtendWith(MockitoExtension.class)
@@ -38,35 +38,75 @@ class CustomMemberServiceTest {
         customMemberList.add(new CustomMember(5L, "memberE"));
     }
 
+    @Test
+    @DisplayName("CustomMemberService.findAll() 테스트")
+    void findAll() {
+        // given
+        given(memberRepository.findAll()).willReturn(customMemberList);
+
+        // when
+        List<CustomMember> members = memberService.findAll();
+
+        // then
+        assertThat(members.size()).isEqualTo(5);
+        assertThat(members).extracting("name")
+                .containsExactly("memberA", "memberB",
+                        "memberC", "memberD", "memberE");
+    }
+
     @Nested
-    class findAllTest {
+    class SaveTest {
 
         @Test
-        @DisplayName("CustomMemberService.findAll() 테스트")
-        void findAll() {
+        @DisplayName("CustomMemberService.save() 성공 테스트")
+        void save_success() {
             // given
-            given(memberRepository.findAll()).willReturn(customMemberList);
+            CustomMember memberA = new CustomMember(1L, "memberA");
+            given(memberRepository.save(memberA)).willReturn(memberA);
 
             // when
-            List<CustomMember> members = memberService.findAll();
+            CustomMember savedMember = memberService.save(memberA);
 
             // then
-            assertThat(members.size()).isEqualTo(5);
-            assertThat(members).extracting("name")
-                    .containsExactly("memberA", "memberB",
-                            "memberC", "memberD", "memberE");
+            assertThat(memberA).isEqualTo(savedMember);
+            assertThatNoException().isThrownBy(() -> memberService.save(memberA));
+        }
+
+        @Test
+        @DisplayName("CustomMemberService.save() 실패 테스트")
+        void save_fail() {
+            CustomMember savedMember = memberService.save(null);
+
+            assertThat(savedMember).isNull();
+            assertThatNoException().isThrownBy(() -> memberService.save(null));
         }
     }
 
     @Nested
-    class saveTest {
+    class FindByIdTest {
 
         @Test
-        @DisplayName("CustomMemberService.save() 테스트")
-        void save() throws Exception {
-            CustomMember memberA = new CustomMember(1L, "memberA");
+        @DisplayName("CustomMemberService.findById() 성공 테스트")
+        void findById_success() {
+            // given
+            CustomMember member = new CustomMember(1L, "memberA");
+            given(memberRepository.findById(1L)).willReturn(Optional.of(member));
 
-            assertThatNoException().isThrownBy(() -> memberService.save(memberA));
+            // when
+            CustomMember findMember = memberService.findById(1L);
+
+            // then
+            assertThat(findMember).isNotNull()
+                    .isEqualTo(member);
+        }
+
+        @Test
+        @DisplayName("CustomMemberService.findById() 실패 테스트")
+        void findById_fail() {
+            given(memberRepository.findById(1L)).willReturn(Optional.empty());
+
+            assertThatExceptionOfType(RuntimeException.class)
+                    .isThrownBy(() -> memberService.findById(1L));
         }
     }
 

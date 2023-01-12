@@ -20,8 +20,8 @@ public class CustomMemberService {
     }
 
     @Transactional
-    public void save(CustomMember member) {
-        memberRepository.save(member);
+    public CustomMember save(CustomMember member) {
+        return memberRepository.save(member);
     }
 
     public CustomMember findById(Long id) {
