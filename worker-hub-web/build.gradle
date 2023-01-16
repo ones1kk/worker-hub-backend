@@ -2,11 +2,10 @@ bootJar { enabled = true }
 jar { enabled = false }
 
 dependencies {
-    implementation project(':worker-hub-domain')
-    implementation project(':worker-hub-api')
+    api project(':worker-hub-api')
 
-    implementation 'org.springframework.boot:spring-boot-starter-web'
-    implementation 'org.springframework.boot:spring-boot-starter-security'
+    api 'org.springframework.boot:spring-boot-starter-web'
+    api 'org.springframework.boot:spring-boot-starter-security'
 
     testImplementation 'org.springframework.security:spring-security-test'
 }
