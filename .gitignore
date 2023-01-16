@@ -38,4 +38,6 @@ out/
 .vscode/
 
 ### *.yml ###
-*.yml
+application-secret-local.yml
+application-secret-dev.yml
+application-secret-prd.yml
