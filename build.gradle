@@ -10,6 +10,16 @@ repositories {
 
 bootJar { enabled = false }
 
+ext.profile = (!project.hasProperty('profile') || !profile) ? 'local' : profile
+
+sourceSets {
+    main {
+        resources {
+            srcDirs  "src/main/resources/env/${profile}", "src/main/resources/env/common"
+        }
+    }
+}
+
 subprojects {
     group = 'com.breakingbad.workerhub'
     version = '1.0.0'
