@@ -1,15 +1,16 @@
 package com.breakingbad.workerhub.controller;
 
-import org.junit.jupiter.api.BeforeEach;
+import com.breakingbad.workerhub.service.CustomMemberService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.test.web.servlet.MvcResult;
-import org.springframework.test.web.servlet.setup.MockMvcBuilders;
-import org.springframework.web.context.WebApplicationContext;
 
+import static java.util.Collections.emptyList;
+import static org.mockito.BDDMockito.given;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -18,23 +19,21 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 class CustomMemberControllerTest {
 
     @Autowired
-    private WebApplicationContext webApplicationContext;
-
     private MockMvc mockMvc;
 
-    @BeforeEach
-    public void beforeEach() {
-        mockMvc = MockMvcBuilders
-                .webAppContextSetup(webApplicationContext)
-                .alwaysDo(MvcResult::getResponse)
-                .build();
-    }
+    @MockBean
+    private CustomMemberService memberService;
 
     @Test
+    @WithMockUser
     void controllerTest() throws Exception {
-        var action = mockMvc.perform(
-                get("/members/1.0"));
+        // given
+        given(memberService.findAll()).willReturn(emptyList());
 
+        // when
+        var action = mockMvc.perform(get("/members/1.0"));
+
+        // then
         action.andExpect(status().isOk());
     }
 }
