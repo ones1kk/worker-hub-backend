@@ -1,9 +1,9 @@
 bootJar { enabled = true }
-jar { enabled = false }
+jar { enabled = true }
 
 dependencies {
     api project(':worker-hub-domain')
 
+    // Spring MVC
     api 'org.springframework.boot:spring-boot-starter-web'
-    api 'org.springframework:spring-tx'
 }

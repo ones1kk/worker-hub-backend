@@ -6,13 +6,18 @@ bootJar { enabled = false }
 jar { enabled = true }
 
 dependencies {
+    // Spring Data JPA
     api 'org.springframework.boot:spring-boot-starter-data-jpa'
+
+    // p6spy
     api 'com.github.gavlyukovskiy:p6spy-spring-boot-starter:1.8.1'
 
+    // QueryDsl
     api 'com.querydsl:querydsl-jpa:5.0.0'
     api 'com.querydsl:querydsl-apt:5.0.0'
 
-    runtimeOnly 'com.h2database:h2'
+    // h2
+    runtimeOnly 'com.h2database:h2:1.4.199'
 }
 
 def querydslDir = "$buildDir/generated/querydsl"

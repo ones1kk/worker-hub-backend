@@ -2,10 +2,17 @@ bootJar { enabled = true }
 jar { enabled = false }
 
 dependencies {
-    api project(':worker-hub-api')
+    api project(":worker-hub-api")
+    api project(":worker-hub-common")
 
-    api 'org.springframework.boot:spring-boot-starter-web'
-    api 'org.springframework.boot:spring-boot-starter-security'
+    // Spring MVC
+    api "org.springframework.boot:spring-boot-starter-web"
 
-    testImplementation 'org.springframework.security:spring-security-test'
+    // Spring Security
+    api "org.springframework.boot:spring-boot-starter-security"
+
+    // Spring Doc
+    api "org.springdoc:springdoc-openapi-ui:${springdocVersion}"
+
+    testImplementation "org.springframework.security:spring-security-test"
 }
