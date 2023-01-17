@@ -1,5 +1,6 @@
 package com.breakingbad.workerhub.controller;
 
+import com.breakingbad.workerhub.ModuleWebApplication;
 import com.breakingbad.workerhub.service.CustomMemberService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +16,7 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @AutoConfigureMockMvc
-@SpringBootTest
+@SpringBootTest(classes = ModuleWebApplication.class)
 class CustomMemberControllerTest {
 
     @Autowired
