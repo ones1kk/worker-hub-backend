@@ -1,8 +1,10 @@
 spring:
   application:
     name: worker-hub-api
-  profiles:
-    active: local
+  config:
+    activate:
+      on-profile: local
+    import: application-secret-local.yml
 
   datasource:
     driver-class-name: org.h2.Driver
