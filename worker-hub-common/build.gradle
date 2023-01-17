@@ -1,0 +1,13 @@
+bootJar { enabled = false }
+jar { enabled = true }
+
+dependencies {
+    // Commons-lang3
+    implementation "org.apache.commons:commons-lang3:${commonsLang3Version}"
+
+    // Commons-io
+    implementation "commons-io:commons-io:${commonsIoVersion}"
+
+    // Commons-codec
+    implementation "commons-codec:commons-codec:${commonsCodecVersion}"
+}

@@ -1,5 +1,6 @@
-rootProject.name = 'worker-hub-backend'
-include 'worker-hub-domain'
-include 'worker-hub-web'
-include 'worker-hub-api'
+rootProject.name = "worker-hub-backend"
+include "worker-hub-domain"
+include "worker-hub-web"
+include "worker-hub-api"
+include "worker-hub-common"
 

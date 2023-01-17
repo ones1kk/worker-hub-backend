@@ -6,8 +6,15 @@ spring:
       on-profile: local
     import: application-secret-local.yml
 
-  datasource:
-    driver-class-name: org.h2.Driver
+  mvc:
+    format:
+      date: yyyy-MM-dd
+      date-time: yyyy-MM-dd HH:mm:ss
+      time: HH:mm
+    servlet:
+      load-on-startup: 1
+    path match:
+      matching-strategy: ant_path_matcher
 
   jpa:
     database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
@@ -28,3 +35,6 @@ logging.level:
 
 server:
   port: 8000
+  servlet:
+    encoding:
+      charset: UTF-8
