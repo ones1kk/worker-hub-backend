@@ -1,11 +1,9 @@
 package com.breakingbad.workerhub;
 
 import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.AutoConfigurationPackage;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-@AutoConfigurationPackage(basePackages = "com.breakingbad.workerhub")
-@SpringBootApplication(scanBasePackages = "com.breakingbad.workerhub")
+@SpringBootApplication
 public class ModuleApiApplication {
 
     public static void main(String[] args) {

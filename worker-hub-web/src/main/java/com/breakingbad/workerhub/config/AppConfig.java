@@ -13,7 +13,7 @@ public class AppConfig {
 
     @Bean
     @Primary
-    static Profiles activeSpringProfile(@NotBlank @Value("${spring.config.activate.on-profile}") String profile) {
+    public Profiles activeSpringProfile(@NotBlank @Value("${spring.config.activate.on-profile}") String profile) {
         return Profiles.from(profile);
     }
 }
