@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Configuration status="INFO">
+    <!-- Properties -->
+    <Properties>
+        <Property name="staticPatternLayout">%d{yyyy-MM-dd HH:mm:ss.SSS} %highlight{%5.5level} %style{%-5L}{magenta} [%7.7thread] %style{%-40.40logger{1.}}{cyan} : %message%n</Property>
+        <Property name="dynamicPatternLayout">%d{yyyy-MM-dd HH:mm:ss.SSS} %highlight{%5.5level} %style{%-5L}{magenta} [%7.7thread] %style{%logger{1.}}{cyan} : %message%n</Property>
+    </Properties>
+
+    <!-- Appender -->
+    <Appenders>
+        <Console name="ConsoleAppender"
+                target="SYSTEM_OUT">
+            <PatternLayout pattern="${staticPatternLayout}" />
+        </Console>
+    </Appenders>
+
+    <!-- Loggers -->
+    <Loggers>
+        <Logger name="org.springframework"
+                level="info"
+                additivity="false">
+            <AppenderRef ref="ConsoleAppender" />
+        </Logger>
+
+        <Logger name="com.breakingbad.workerhub"
+                level="debug"
+                additivity="false">
+            <AppenderRef ref="ConsoleAppender" />
+        </Logger>
+
+        <Logger name="org.springframework.web"
+                level="error"
+                additivity="false">
+            <AppenderRef ref="ConsoleAppender" />
+        </Logger>
+
+        <Root level="info">
+            <AppenderRef ref="ConsoleAppender"/>
+        </Root>
+    </Loggers>
+</Configuration>

@@ -5,6 +5,9 @@ spring:
     activate:
       on-profile: local
     import: application-secret-local.yml
+  output:
+    ansi:
+      enabled: always
 
   mvc:
     format:
@@ -28,8 +31,10 @@ spring:
         default-page-size: 10
         max-page-size: 2000
 
-logging.level:
-  org.hibernate.SQL: debug
+logging:
+  level:
+    org.hibernate.SQL: debug
+  config: classpath:log4j2.xml
 
 server:
   port: 8080
