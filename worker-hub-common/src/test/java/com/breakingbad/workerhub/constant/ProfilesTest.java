@@ -1,7 +1,9 @@
 package com.breakingbad.workerhub.constant;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatExceptionOfType;
 
+import io.github.ones1kk.assertion.core.exception.AssertException;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
@@ -45,6 +47,13 @@ class ProfilesTest {
 
         Profiles local = Profiles.from("local");
         assertThat(local).isEqualTo(Profiles.LOCAL);
+      }
+
+      @ParameterizedTest
+      @ValueSource(strings = {"test", "realease", "personal", "exe"})
+      @DisplayName("등록 되어 있지 않은 profile은 AssertException을 던진다.")
+      void from_fail(String profile) {
+        assertThatExceptionOfType(AssertException.class).isThrownBy(() -> Profiles.from(profile));
       }
 
     }
