@@ -13,7 +13,7 @@ import static lombok.AccessLevel.PROTECTED;
 @AllArgsConstructor
 @NoArgsConstructor(access = PROTECTED)
 @Entity
-@Table(name = "member")
+@Table(name = "custom_member")
 public class CustomMember {
 
     @Id
