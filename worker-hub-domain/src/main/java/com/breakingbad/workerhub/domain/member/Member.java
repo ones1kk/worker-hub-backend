@@ -2,7 +2,6 @@ package com.breakingbad.workerhub.domain.member;
 
 import com.breakingbad.workerhub.common.audting.IdAuditingEntity;
 import com.breakingbad.workerhub.common.component.*;
-import com.breakingbad.workerhub.component.*;
 import com.breakingbad.workerhub.common.constant.YesOrNo;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -49,5 +48,9 @@ public class Member extends IdAuditingEntity {
     @Enumerated(value = STRING)
     @Column(name = "delete_yn", length = 1)
     private YesOrNo deleteYn;
+
+    @Enumerated(value = STRING)
+    @Column(name = "employee_yn")
+    private YesOrNo employeeYn;
 
 }

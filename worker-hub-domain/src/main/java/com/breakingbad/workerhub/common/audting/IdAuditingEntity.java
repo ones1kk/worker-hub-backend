@@ -12,11 +12,11 @@ import javax.persistence.MappedSuperclass;
 public class IdAuditingEntity extends DateTimeAuditingEntity {
 
     @CreatedBy
-    @Column(name = "createdBy", updatable = false, nullable = false)
+    @Column(name = "created_by", updatable = false, nullable = false)
     private String createdBy;
 
     @LastModifiedBy
-    @Column(name = "lastModifiedBy", nullable = false)
+    @Column(name = "last_modified_by", nullable = false)
     private String lastModifiedBy;
 
 }
