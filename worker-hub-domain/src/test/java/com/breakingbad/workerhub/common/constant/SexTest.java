@@ -23,6 +23,18 @@ class SexTest {
             assertThat(mValue).isEqualTo("MALE");
             assertThat(eValue).isEqualTo("ETC");
         }
+
+        @Test
+        @DisplayName("getValue() 테스트")
+        void getDescription() {
+            String fDescription = Sex.F.getDescription();
+            String mDescription = Sex.M.getDescription();
+            String eDescription = Sex.E.getDescription();
+
+            assertThat(fDescription).isEqualTo("여자");
+            assertThat(mDescription).isEqualTo("남자");
+            assertThat(eDescription).isEqualTo("기타");
+        }
     }
 
 }
