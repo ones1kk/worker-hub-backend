@@ -3,6 +3,7 @@ plugins {
     id "io.spring.dependency-management" version "1.1.0"
     id "java"
     id "jacoco"
+    id "com.github.kt3k.coveralls" version "2.12.0"
 }
 
 ext {
@@ -10,7 +11,7 @@ ext {
     commonsLang3Version = "3.12.0"
     commonsCodecVersion = "1.15"
     commonsIoVersion = "2.11.0"
-    assertionsVersion = "0.0.2"
+    assertionsVersion = "0.0.5"
     springdocVersion = "1.6.14"
     p6SpyVersion = "1.8.1"
     querydslVersion = "5.0.0"
@@ -34,6 +35,7 @@ subprojects {
     apply plugin: "org.springframework.boot"
     apply plugin: "io.spring.dependency-management"
     apply plugin: "jacoco"
+    apply plugin: "com.github.kt3k.coveralls"
 
     configurations {
         all {
@@ -89,7 +91,7 @@ subprojects {
     jacocoTestReport {
         reports {
             html.enabled true
-            xml.enabled false
+            xml.enabled true
             csv.enabled false
 
             html.destination file("$buildDir/jacoco/report")
@@ -121,10 +123,15 @@ subprojects {
                         "**.*Request*",
                         "**.*Response*",
                         "**.*Interceptor*",
-                        "**.*Exception*"
+                        "**.*Exception*",
+                        "**.*Dto",
                 ] + Qdomains
             }
         }
+    }
+
+    coveralls {
+        jacocoReportPath "$buildDir/jacoco/report/index.xml"
     }
 
     test {
