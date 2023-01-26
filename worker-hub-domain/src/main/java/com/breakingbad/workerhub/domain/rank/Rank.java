@@ -35,14 +35,4 @@ public class Rank {
     @JoinColumn(name = "department_id")
     private Department department;
 
-    public static Rank createRank(String name, String description, Integer sortNumber, Department department) {
-        Rank rank = Rank.builder()
-                .name(name)
-                .description(description)
-                .sortNumber(sortNumber)
-                .department(department)
-                .build();
-        department.getRanks().add(rank);
-        return rank;
-    }
 }
