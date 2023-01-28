@@ -7,10 +7,9 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-
 import java.time.LocalDate;
 
-import static javax.persistence.EnumType.*;
+import static javax.persistence.EnumType.STRING;
 import static javax.persistence.GenerationType.IDENTITY;
 import static lombok.AccessLevel.PROTECTED;
 
@@ -24,7 +23,7 @@ public class LeaveRequest extends IdAuditingEntity {
     @Column(name = "leave_request_id")
     private Long id;
 
-    @Enumerated(value =  STRING)
+    @Enumerated(value = STRING)
     @Column(name = "leave_classification_code")
     private LeaveClassification leaveClassification;
 
