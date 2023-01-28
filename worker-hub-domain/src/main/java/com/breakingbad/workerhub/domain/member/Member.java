@@ -3,6 +3,8 @@ package com.breakingbad.workerhub.domain.member;
 import com.breakingbad.workerhub.common.audting.IdAuditingEntity;
 import com.breakingbad.workerhub.common.component.*;
 import com.breakingbad.workerhub.common.constant.YesOrNo;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -14,6 +16,8 @@ import static lombok.AccessLevel.PROTECTED;
 
 @Getter
 @NoArgsConstructor(access = PROTECTED)
+@AllArgsConstructor
+@Builder
 @Entity(name = "member")
 public class Member extends IdAuditingEntity {
 

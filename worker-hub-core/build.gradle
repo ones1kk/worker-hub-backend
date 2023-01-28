@@ -1,0 +1,15 @@
+bootJar { enabled = false }
+jar { enabled = true }
+
+dependencies {
+    api project(":worker-hub-common")
+
+    // Spring MVC
+    api "org.springframework.boot:spring-boot-starter-web"
+
+    // Spring Security
+    api "org.springframework.boot:spring-boot-starter-security"
+
+    // Spring Doc
+    api "org.springdoc:springdoc-openapi-ui:${springdocVersion}"
+}

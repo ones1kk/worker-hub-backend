@@ -5,6 +5,7 @@ import io.swagger.v3.oas.models.info.Contact;
 import io.swagger.v3.oas.models.info.Info;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Primary;
 
 import static com.breakingbad.workerhub.constant.OpenApiInformation.*;
 
@@ -12,6 +13,7 @@ import static com.breakingbad.workerhub.constant.OpenApiInformation.*;
 public class OpenApiConfig {
 
     @Bean
+    @Primary
     public OpenAPI springShopOpenAPI() {
         return new OpenAPI().info(new Info()
                 .title(TITLE.getValue())
