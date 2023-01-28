@@ -3,4 +3,5 @@ include "worker-hub-domain"
 include "worker-hub-web"
 include "worker-hub-api"
 include "worker-hub-common"
+include 'worker-hub-core'
 
