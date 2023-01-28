@@ -23,7 +23,7 @@ public class PhoneNumber {
     private static final Pattern PHONE_NUMBER_PATTERN = Pattern.compile("^(\\d{2,3})(\\d{3,4})(\\d{4})$");
 
     public PhoneNumber(String phoneNumber) {
-        Asserts.that(phoneNumber).isNotNull().matches(PHONE_NUMBER_PATTERN);
+        Asserts.that(phoneNumber).isNotNull().hasText().matches(PHONE_NUMBER_PATTERN);
         this.phoneNumber = phoneNumber;
     }
 
