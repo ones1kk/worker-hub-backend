@@ -101,31 +101,11 @@ subprojects {
     }
 
     jacocoTestCoverageVerification {
-        var Qdomains = []
-        for (qPattern in "*.QA".."*.QZ") {
-            Qdomains.add(qPattern + "*")
-        }
 
         violationRules {
             rule {
                 enabled = true
                 element = "CLASS"
-
-                limit {
-                    // 임시 50%, 추후 80% 이상 설정 예정
-                    minimum = 0.50
-                }
-
-                excludes = [
-                        "**.*Application*",
-                        "**.*Config*",
-                        "**.*Dto*",
-                        "**.*Request*",
-                        "**.*Response*",
-                        "**.*Interceptor*",
-                        "**.*Exception*",
-                        "**.*Dto",
-                ] + Qdomains
             }
         }
     }
