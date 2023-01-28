@@ -7,7 +7,6 @@ import lombok.NoArgsConstructor;
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
 import javax.persistence.Transient;
-
 import java.util.regex.Pattern;
 
 import static lombok.AccessLevel.PROTECTED;

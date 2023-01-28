@@ -21,9 +21,9 @@ class EmailTest {
         }
 
         @ParameterizedTest
-        @ValueSource(strings = {"ones1k95", "hyone996", "omega0493", "123456", "워커허브", "워커허브@gmail.com"})
+        @ValueSource(strings = {"ones1k95", "hyone996", "omega0493", "123456", "워커허브", "워커허브@gmail.com", "", " "})
         @DisplayName("비정상적인 email 포맷은 Email 객체를 생성할 수 없다.")
-        void create_fail(String value) throws Exception{
+        void create_fail(String value) throws Exception {
             assertThatThrownBy(() -> new Email(value));
         }
 
@@ -34,9 +34,9 @@ class EmailTest {
     class ToStringTest {
 
         @ParameterizedTest
-        @ValueSource(strings= {"ones1k95@gmail.com", "hyone996@gmail.com", "omega0493@naver.com"})
+        @ValueSource(strings = {"ones1k95@gmail.com", "hyone996@gmail.com", "omega0493@naver.com"})
         @DisplayName("toString() 호출 시 Email 객체의 email 필드 값을 반환한다.")
-        void emailToString(String value) throws Exception{
+        void emailToString(String value) throws Exception {
             // given
             Email email = new Email(value);
 
