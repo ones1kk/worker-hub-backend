@@ -1,5 +1,8 @@
 # Worker-Hub(워커 허브)
 
+[![Build Status](https://app.travis-ci.com/worker-hub/worker-hub-backend.svg?branch=master)](https://app.travis-ci.com/worker-hub/worker-hub-backend)
+[![Coverage Status](https://coveralls.io/repos/github/worker-hub/worker-hub-backend/badge.svg?branch=master)](https://coveralls.io/github/worker-hub/worker-hub-backend?branch=master)
+
 ## 프로젝트 설명
 **Worker-Hub(워커 허브)** 는 통합 인력 관리를 지원해주는 웹 서비스입니다.
 > 연차/근태 관리, 지출 결의서 작성, 경조사 신청, 비품 등... 보다 효율적으로 관리할 수 있도록 도와드립니다.
