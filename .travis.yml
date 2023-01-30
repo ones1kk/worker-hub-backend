@@ -1,28 +1,28 @@
 language: java
 jdk:
-  - openjdk11
+- openjdk11
 
 branches:
   only:
-    - master
+  - master
 
 cache:
   directories:
-    - $HOME/.m2/repository
-    - $HOME/.gradle
+  - $HOME/.m2/repository
+  - $HOME/.gradle
 
 before_script:
-  - chmod +x gradlew
+- chmod +x gradlew
 
 script:
-  - ./gradlew clean build
+- ./gradlew clean build
 
 after_success:
-  - ./gradlew jacocoTestReport coveralls
+- ./gradlew jacocoTestReport coveralls
 
 notifications:
   slack:
-    secure: D0bJZnG+CRH3g5DyYNy/tIwuiiXVhc7HDUPC2X5e/nLKxhAlDVdgMAWXAh2QhzTLu7TJdzL+6s/gjdFVuq4MYetL1fCn4bczr3cDVXNXMOvZIArQo8H7+I4txBO4PH4f09Pk3oAndng3OV6Cpmn0wINPFzzwjNMbyu51EdE9S5JCGQxSx1dP6Wjn3sPbwUWUGH3jKkAo0kfXu5wQIFvsgSWP0ScDUtF5KBeyLVy7LCFqu838QnblR1qU6CKillM5Dg6+aslaVUyGcXD1rfcN+oVPrkh5O8x7fmANYSanCr2dyZ4WrVhCu+MhjAjd4u+Rhd6xvoj9TOU0WoUQ2oGbIXPg/8DhQDzSJzvA3BCkZGUVe5VU1vbmbIT847gt2FWQU7cE0PPPPZwJdFNolyFX9HpG2Ul62l/240r9gtiqtRhOLxDErRmIwVBFeXxJEOU+XDTY1oxA0da/3FLaz9aK5az7eDB1lfzS05rXY53VrQ6HE4TiFg85FEa86V98R9fV3Lz77TRyfC/wOn/ikSo6E41OLUi9wlxVRZ583ZSHMOVoqjW/b341hHmbtH8XZVl2v3Lw/thlD/BANOVoaEhBLvh5cHXnVg0hiiH4N3KcjlaoAtlT1UcYO0NECNWfiopkHnOnOADYkmzJP4a2COZuPlZWU+Q2gtRVUxZywuIBxgA=
+    secure: PkdUILLEmixyo9RdaEjZfVXpddpHQWwz/sTo3aH9y6EVMEqHoW70BWvM0wCazoBbvEsZyvI0qFx0Hfvu/Ji/FnuwnRpKWoeTRNxQcvoWGbSbk2ypng9XvClttz5cXYYrDeGr13qqR0Wry5pOR93FC9ZG+YjQJ1GMNuqEBPOwfMeHxUkv4E2TmUzC/gUg+XngOI6Gc3PIdon6NtzqyDZHp+8zJPRmKe0D0RXcILcQrKRBlF8bUS/QnhO8Mc/CuuCfrbhr6OdQmmmEltBiGnPq6up9m4tTKo6WSaKb+7rRIVudo1fFIHyvCVNia/bgVFNkEoACcXLPmI1VVjwMUsS1jJeo/FrkMMPSZeqzHQcfbdEcL0T1d8GjHqLXbttxbIASnISi8YwnlfGfly/X2hdAaCPwENp32iPsHfmhj3oWgs9An695jXtwhF+THox/iGbWwxf+4mG40f0UihofzxITXFxmWKMABgbpLDX0MvQix7zFQnb3J2B3lnSV6fDTG7iyYvkCxbbnSeVDyOOubjUZhPtYSTTRd64w7A1jFIyrO1hauDdtg6PYvuwmYKbqrAWmBPL5VD8M0plPmH3SFBuLOQx+FOATRqnnotImi1DF5TG/pm5yAf3CCPM0d+TbF2m/jZeOsR00MDZA1Hjh8SlbPG80IrD3PvY98h2dJR2oUWQ=
   email:
     recipients:
-      - workerhub.official@gmail.com
+    - workerhub.official@gmail.com
