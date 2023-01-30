@@ -24,7 +24,7 @@ class ProfilesTest {
         }
 
         @ParameterizedTest
-        @ValueSource(strings = {"test", "realease", "personal", "exe"})
+        @ValueSource(strings = {"test", "release", "personal", "exe"})
         @DisplayName("등록 되어 있지 않은 profile은 false를 반환한다.")
         void contain_fail(String profile) {
             assertThat(Profiles.contains(profile)).isFalse();
