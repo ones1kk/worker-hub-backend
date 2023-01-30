@@ -92,6 +92,7 @@ subprojects {
         reports {
             html.enabled true
             xml.enabled true
+            html.destination file("$buildDir/jacoco/report/index.html")
             xml.destination file("$buildDir/jacoco/report/index.xml")
         }
 
@@ -99,11 +100,26 @@ subprojects {
     }
 
     jacocoTestCoverageVerification {
+        var Qdomains = []
+        for (qPattern in "*.QA".."*.QZ") {
+            Qdomains.add(qPattern + "*")
+        }
 
         violationRules {
             rule {
                 enabled = true
                 element = "CLASS"
+
+                excludes = [
+                        "**.*Application*",
+                        "**.*Config*",
+                        "**.*Dto*",
+                        "**.*Request*",
+                        "**.*Response*",
+                        "**.*Interceptor*",
+                        "**.*Exception*",
+                        "**.*Dto",
+                ] + Qdomains
             }
         }
     }
