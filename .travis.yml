@@ -1,28 +1,19 @@
 language: java
 jdk:
 - openjdk11
-  
 branches:
   only:
   - master
-    
 cache:
   directories:
-  - $HOME/.m2/repository
-  - $HOME/.gradle
-    
+  - "$HOME/.m2/repository"
+  - "$HOME/.gradle"
 before_script:
 - chmod +x gradlew
-  
 script:
-- ./gradlew clean build
-  
+- "./gradlew clean build"
 after_success:
-- ./gradlew jacocoTestReport coveralls
-  
+- "./gradlew jacocoTestReport coveralls"
 notifications:
   slack:
-    on_success: always
-    on_failure: always
-    rooms:
-      - secure: YYXJ0yyd++62O7kdF4nWT4TSQ9w56Ky1Ea30kx1J1JctUKVthIXd5v3JicHPjbFCay18Ip2CBr423yLwJ1NjJEpHizysOMWN21QYSc6EnV/Layaem+QazO+MQfRaqwfbwcomH1moLnziS4auqqoQeSVYcQGjyBT/8Imvhu5Tnj0g1XO2EfF+IqwFBPXOT089QLzmZQiCl5REN/lPFtOdSLox4ihA022ji7Lp/8qGY2pNZOCAnxiVWN/ikqjBAT9TKn5S7uWjIOEbn6zpUPvFlpsncmLdfuubTUmFJSeaHRTkg9twV21Ua3vun6moawmi8tDEIoIJc8a2KPiqXV/DYACbL6dvV60voFxch3CATyJCCO/KsAueEppkwxRXIFoDJn/1pUEbK2tK076jgIf7jaDZDPiUfFtjeVtXlmLPIhzYlHdhfMuxZodM4d1nqLc2fTBU19uQ7TGRm91cuU9sg99tCxp4jeDpC8RQkqDEp0jdP/jvRfVd1L9jYs19pYDIeV/yy8bP77vRH7ACftuq10IfFfZ8J49GKafFEvl/5qt+SqbflT4VSqPTFFxw+eQOhnXvyER3g7iX4WnQjIW+EMB7CQntM7n6y7B6YxTRZVdBV/+an0cPbORNugdoiBrjLUsnO9fwxjGSseRMyN0VqsQRYy5yim5+6/KW6iMhG+g=
+    secure: IqOFuwoIF8ockw1X816wkqVoj6bVlIPAZqtLMf+//HO/UqHBP77WUJZriqKafBVtnTfy4ttklB9tRVKMZCzRSth0j9SrPD4QlNfmuKhgoodiQFQ9jh1qfI9C7BhUEyHZQs+t7RXk/DIhWoFiGtcOSozfrVqcKh9AkUt3K7z83Wyl22TyFncwrEyw9GnDhDRfWoHrGCjJl3aHKJXUcysipe8Gg2gZv80U7dXod4pRq/zlTgmkPGHhTpg8ViU5dZFymgubWL3RTQ/g+OOHYGD1HqWsJ9GIuauTDrYnJhxjXTePCKvWZscZKEzDYTw9bQIsnGJ9YU9wKPmeJa+tjB62x1f4yrk44gcC9PN0/5C5VamueXnLVO+BVcdeVeyCBrINA2JBlQFQ23aG7sAQbHdFv68QOk6T5L09bnfn6T21Sh14TCIk0TiJf2ELNKJK2yNXECtS0u8BvSjncIFuwIwFoiIGtzFOr7eC1/7tZObm9uFzIXRlqCWH7hOndLh1+W2FsrGMexMBoWBv+FSRPwRAwoz5qYXUmh6OJzF0yGn6cJFO4vlnKSGfuOgyahznRjS3GzkUrpvOeeF3vWfF9CT3rXzGv9SlGjAs+I7ZsAtML6zEKYIcRDeTZnujcpXvC6JsVzZCVQM9sNmdyNbvC81pHoPPhZ4Dtk369wB+sBFEkzY=
