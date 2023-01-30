@@ -92,9 +92,7 @@ subprojects {
         reports {
             html.enabled true
             xml.enabled true
-            csv.enabled false
-
-            html.destination file("$buildDir/jacoco/report")
+            xml.destination file("$buildDir/jacoco/report/index.xml")
         }
 
         finalizedBy "jacocoTestCoverageVerification"

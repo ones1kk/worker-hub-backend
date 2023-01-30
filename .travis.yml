@@ -11,12 +11,16 @@ cache:
     - "$HOME/.m2/repository"
     - "$HOME/.gradle"
 
+before_script:
+  - chmod +x gradlew
+
 script: "./gradlew clean build"
 
 after_success:
   - ./gradlew jacocoTestReport coveralls
 
 notifications:
+  slack: $SLACK_TOKEN
   email:
     recipients:
       - workerhub.official@gmail.com
