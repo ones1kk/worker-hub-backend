@@ -8,19 +8,21 @@ branches:
 
 cache:
   directories:
-    - "$HOME/.m2/repository"
-    - "$HOME/.gradle"
+    - $HOME/.m2/repository
+    - $HOME/.gradle
 
 before_script:
   - chmod +x gradlew
 
-script: "./gradlew clean build"
+script:
+  - ./gradlew clean build
 
 after_success:
   - ./gradlew jacocoTestReport coveralls
 
 notifications:
-  slack: $SLACK_TOKEN
+  slack:
+    secure: D0bJZnG+CRH3g5DyYNy/tIwuiiXVhc7HDUPC2X5e/nLKxhAlDVdgMAWXAh2QhzTLu7TJdzL+6s/gjdFVuq4MYetL1fCn4bczr3cDVXNXMOvZIArQo8H7+I4txBO4PH4f09Pk3oAndng3OV6Cpmn0wINPFzzwjNMbyu51EdE9S5JCGQxSx1dP6Wjn3sPbwUWUGH3jKkAo0kfXu5wQIFvsgSWP0ScDUtF5KBeyLVy7LCFqu838QnblR1qU6CKillM5Dg6+aslaVUyGcXD1rfcN+oVPrkh5O8x7fmANYSanCr2dyZ4WrVhCu+MhjAjd4u+Rhd6xvoj9TOU0WoUQ2oGbIXPg/8DhQDzSJzvA3BCkZGUVe5VU1vbmbIT847gt2FWQU7cE0PPPPZwJdFNolyFX9HpG2Ul62l/240r9gtiqtRhOLxDErRmIwVBFeXxJEOU+XDTY1oxA0da/3FLaz9aK5az7eDB1lfzS05rXY53VrQ6HE4TiFg85FEa86V98R9fV3Lz77TRyfC/wOn/ikSo6E41OLUi9wlxVRZ583ZSHMOVoqjW/b341hHmbtH8XZVl2v3Lw/thlD/BANOVoaEhBLvh5cHXnVg0hiiH4N3KcjlaoAtlT1UcYO0NECNWfiopkHnOnOADYkmzJP4a2COZuPlZWU+Q2gtRVUxZywuIBxgA=
   email:
     recipients:
       - workerhub.official@gmail.com
