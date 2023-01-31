@@ -26,14 +26,14 @@ jobs:
       run: ./gradlew build
 
     - name: Notify slack
-      uses: 8398a7/action-slack@v2.6.0
+      uses: 8398a7/action-slack@v3
       with:
         status: ${{ job.status }}
-        author_name: GithubAction Bot
+        author_name: Github Action Test
         fields: repo,message,author,action,eventName,workflow,job,took
       env:
-        GITHUB_TOKEN: ${{ secrets.TOKEN }}
         SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+      if: always() 
         
     - name: Create Coverage Badges
       uses: jaywcjlove/coverage-badges-cli@main
