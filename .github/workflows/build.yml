@@ -1,4 +1,4 @@
-name: Java CI with Gradle
+name: Build with Gradle
 
 on:
   push:
@@ -22,10 +22,10 @@ jobs:
     - name: Grant execute permission for gradlew
       run: chmod +x gradlew
       
-    - name: action-gradle
+    - name: Build gradle
       run: ./gradlew build
 
-    - name: action-slack
+    - name: Notify slack
       uses: 8398a7/action-slack@v2.6.0
       with:
         status: ${{job.status}}
@@ -35,7 +35,15 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.TOKEN }}
         SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
         
-    - name: action-coveralls.io
-      uses: coverallsapp/github-action@v1.1.2
+    - name: Create Coverage Badges
+      uses: jaywcjlove/coverage-badges-cli@main
       with:
-        github-token: ${{ secrets.TOKEN }}
+        style: flat
+        source: coverage/coverage-summary.json
+        output: coverage/badges.svg
+
+    - name: Deploy
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./build
