@@ -36,7 +36,8 @@ jobs:
     - name: Merge jacoco reports
       run: ./gradlew jacocoRootReport
 
-    - name: |
+    - name: Test
+    - run: |
         ls .build/
         ls .build/jacoco
         ls .build/jacoco/report
