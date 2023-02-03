@@ -24,7 +24,14 @@ jobs:
         run: ./gradlew build
 
       - name: Merge jacoco reports
-        run: ./gradlew jacocoRootReport
+        run: ./gradlew jacocoRootReport    
+      
+      - name: Upload coverage to Codecov
+      - uses: actions/checkout@master
+      - uses: codecov/codecov-action@v3
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+          files: ./build/jacoco/report/index.xml
 
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v1
