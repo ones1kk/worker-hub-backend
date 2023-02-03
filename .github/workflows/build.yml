@@ -37,13 +37,13 @@ jobs:
         run: ./gradlew jacocoRootReport
 
       - name: Test1
-      - run: ls .build
+        run: ls .build
 
       - name: Test2
-      - run: ls .build/jacoco
+        run: ls .build/jacoco
 
       - name: Test3
-      - run: ls .build/jacoco/report
+        run: ls .build/jacoco/report
 
 
 
