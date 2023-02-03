@@ -26,19 +26,11 @@ jobs:
       - name: Merge jacoco reports
         run: ./gradlew jacocoRootReport    
       
-      - uses: actions/checkout@master
-      
       - name: Upload coverage to Codecov
-      - uses: codecov/codecov-action@v3
+        uses: codecov/codecov-action@v3
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
           files: ./build/jacoco/report/index.xml
-
-      - name: Upload coverage to Codecov
-        uses: codecov/codecov-action@v1
-        with:
-          token: ${{ secrets.CODECOV_TOKEN }}
-          file: ./build/jacoco/report/index.xml
           
       - name: Notify slack
         uses: 8398a7/action-slack@v3
