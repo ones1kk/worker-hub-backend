@@ -23,6 +23,27 @@ jobs:
       - name: Build gradle
         run: ./gradlew build
 
+      - name: Merge jacoco reports
+        run: ./gradlew jacocoRootReport
+
+      - name: Test0
+        run: pwd
+
+      - name: Test0-1
+        run: find / -name build -type d
+
+      - name: Test0-2
+        run: find / -name .build -type d
+
+      - name: Test1
+        run: ls .build
+
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v1
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+          file: .build/jacoco/report/index.xml
+          
       - name: Notify slack
         uses: 8398a7/action-slack@v3
         with:
@@ -32,23 +53,3 @@ jobs:
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
         if: always()
-
-      - name: Merge jacoco reports
-        run: ./gradlew jacocoRootReport
-
-      - name: Test1
-        run: ls .build
-
-      - name: Test2
-        run: ls .build/jacoco
-
-      - name: Test3
-        run: ls .build/jacoco/report
-
-
-
-      - name: Upload coverage to Codecov
-        uses: codecov/codecov-action@v1
-        with:
-          token: ${{ secrets.CODECOV_TOKEN }}
-          file: .build/jacoco/report/index.xml
