@@ -39,10 +39,10 @@ jobs:
       - name: Test1
       - run: ls .build
 
-     - name: Test2
-     - run:  ls .build/jacoco
-
       - name: Test2
+      - run: ls .build/jacoco
+
+      - name: Test3
       - run: ls .build/jacoco/report
 
 
