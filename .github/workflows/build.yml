@@ -10,40 +10,45 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
-    - name: Set up JDK 11
-      uses: actions/setup-java@v2
-      with:
-        java-version: '11'
-        distribution: 'adopt'
-        
-    - name: Grant execute permission for gradlew
-      run: chmod +x gradlew
-      
-    - name: Build gradle
-      run: ./gradlew build
+      - uses: actions/checkout@v2
+      - name: Set up JDK 11
+        uses: actions/setup-java@v2
+        with:
+          java-version: '11'
+          distribution: 'adopt'
 
-    - name: Notify slack
-      uses: 8398a7/action-slack@v3
-      with:
-        status: ${{ job.status }}
-        author_name: Github Action Test
-        fields: repo,message,author,action,eventName,workflow,job,took
-      env:
-        SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
-      if: always()
-      
-    - name: Merge jacoco reports
-      run: ./gradlew jacocoRootReport
+      - name: Grant execute permission for gradlew
+        run: chmod +x gradlew
 
-    - name: Test
-    - run: |
-        ls .build/
-        ls .build/jacoco
-        ls .build/jacoco/report
+      - name: Build gradle
+        run: ./gradlew build
 
-    - name: Upload coverage to Codecov
-      uses: codecov/codecov-action@v1
-      with:
-        token: ${{ secrets.CODECOV_TOKEN }}
-        file: .build/jacoco/report/index.xml
+      - name: Notify slack
+        uses: 8398a7/action-slack@v3
+        with:
+          status: ${{ job.status }}
+          author_name: Github Action Test
+          fields: repo,message,author,action,eventName,workflow,job,took
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+        if: always()
+
+      - name: Merge jacoco reports
+        run: ./gradlew jacocoRootReport
+
+      - name: Test1
+      - run: ls .build
+
+     - name: Test2
+     - run:  ls .build/jacoco
+
+      - name: Test2
+      - run: ls .build/jacoco/report
+
+
+
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v1
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+          file: .build/jacoco/report/index.xml
