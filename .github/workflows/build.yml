@@ -28,15 +28,9 @@ jobs:
 
       - name: Test0
         run: pwd
-
-      - name: Test0-1
-        run: find / -name build -type d
-
-      - name: Test0-2
-        run: find / -name .build -type d
-
+      
       - name: Test1
-        run: ls .build
+        run: ls -al
 
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v1
