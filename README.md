@@ -25,53 +25,16 @@
 - Slack(alarm)
 
 ## 개발자
-> ### Backend
 - [ones1kk](https://github.com/ones1kk)   
   - 프로젝트 구조 및 초기 설정 구성
   - DB 설계
   - JPA Model 설계
   - Github Actions 설정
+  - 개발정의서 작성
 - [MyPottery](https://github.com/MyPottery)
   - DB 설계
-> ### Frontend
-- [paulront](https://github.com/paulront)
-  - 프로젝트 구조 및 초기 설정 구성
+  - 회원 기능
 
-## Code Convention
+## 참고 문서
 
-### Java
-> <details>
->  <summary>자세히</summary>
->
->  1. 한 메서드에서 한 단계 들여쓰기만 사용하자.  
->   > Use only one level of indentation.
->
-> 
->  2. else 예약어를 쓰지 말자.
->  > Don’t use the else keyword.
->
->
->  3. 모든 원시값과 문자열을 포장하자.
->   > Wrap all primitives and strings.
->
->
->  4. 일급 컬렉션을 사용하자.
->   > Use first-class collections.
->
->  5. 한 줄에서 한개의 점만 사용하자.
->   > Use only one dot per line
->
->
->  6. 축약하지 말자.
->  >  Don’t abbreviate.
->
->  7.  모든 엔티티를  작게 유지하자.
->  >  Keep all entities small.
->
->  8. 클래스는 변수 두 개를 넘지 않게 하자.
->  >  Don’t use any classes with more than two instance variables.
->
->  9. Getter / Setter / Properties를 사용하지 말자.
->  > Don’t use any getters/setters/properties
-> </details>
-
+[개발정의서](https://github.com/worker-hub/worker-hub-backend/blob/master/doc/STATEMENT.md)
