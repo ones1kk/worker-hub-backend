@@ -1,10 +1,12 @@
-package com.breakingbad.workerhub.common.component;
+package com.breakingbad.workerhub.domain.component;
 
+import com.breakingbad.workerhub.core.converter.PasswordConverter;
 import io.github.ones1kk.assertion.core.Asserts;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.Column;
+import javax.persistence.Convert;
 import javax.persistence.Embeddable;
 import javax.persistence.Transient;
 import java.util.regex.Pattern;
@@ -17,7 +19,7 @@ import static lombok.AccessLevel.PROTECTED;
 public class Password {
 
     @Column(name = "password")
-//    @Convert(converter = PasswordConverter.class)
+    @Convert(converter = PasswordConverter.class)
     private String password;
 
     @Transient

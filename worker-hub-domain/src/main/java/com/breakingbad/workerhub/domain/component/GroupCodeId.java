@@ -1,4 +1,4 @@
-package com.breakingbad.workerhub.common.component;
+package com.breakingbad.workerhub.domain.component;
 
 import lombok.Getter;
 

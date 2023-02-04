@@ -1,4 +1,4 @@
-package com.breakingbad.workerhub.common.constant;
+package com.breakingbad.workerhub.domain.constant;
 
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;

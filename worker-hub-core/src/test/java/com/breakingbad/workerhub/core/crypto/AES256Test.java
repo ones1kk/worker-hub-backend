@@ -38,6 +38,14 @@ class AES256Test {
 
         @ParameterizedTest
         @ValueSource(strings = {"ones1k95@gmail.com", "hyone996@gmail.com", "omega0493@naver.com"})
+        void encrypted(String value) throws Exception {
+            String encrypted = crypto.encrypt(value);
+
+            assertThat(encrypted).isNotNull().isBase64();
+        }
+
+        @ParameterizedTest
+        @ValueSource(strings = {"ones1k95@gmail.com", "hyone996@gmail.com", "omega0493@naver.com"})
         void success(String value) throws Exception {
             // given
             String encrypted = crypto.encrypt(value);

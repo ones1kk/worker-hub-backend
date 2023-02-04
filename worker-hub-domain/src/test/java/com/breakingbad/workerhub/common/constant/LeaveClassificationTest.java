@@ -1,5 +1,6 @@
 package com.breakingbad.workerhub.common.constant;
 
+import com.breakingbad.workerhub.domain.constant.LeaveClassification;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;

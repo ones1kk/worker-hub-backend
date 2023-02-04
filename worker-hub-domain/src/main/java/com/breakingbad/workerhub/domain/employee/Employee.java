@@ -1,7 +1,7 @@
 package com.breakingbad.workerhub.domain.employee;
 
-import com.breakingbad.workerhub.common.audting.IdAuditingEntity;
-import com.breakingbad.workerhub.common.constant.YesOrNo;
+import com.breakingbad.workerhub.domain.audting.IdAuditingEntity;
+import com.breakingbad.workerhub.domain.constant.YesOrNo;
 import com.breakingbad.workerhub.domain.employeerank.EmployeeRank;
 import com.breakingbad.workerhub.domain.member.Member;
 import lombok.Getter;

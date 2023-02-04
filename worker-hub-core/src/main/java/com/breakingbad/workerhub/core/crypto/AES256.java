@@ -1,5 +1,6 @@
 package com.breakingbad.workerhub.core.crypto;
 
+import com.breakingbad.workerhub.exception.EncryptException;
 import io.github.ones1kk.assertion.core.Asserts;
 
 import javax.crypto.Cipher;
@@ -10,6 +11,7 @@ import java.security.Key;
 import java.security.spec.AlgorithmParameterSpec;
 import java.util.Base64;
 
+import static com.breakingbad.workerhub.constant.Algorithm.AES;
 import static com.breakingbad.workerhub.constant.Algorithm.AES_CBC_PKCS5PADDING;
 
 
@@ -26,7 +28,7 @@ public class AES256 implements Crypto {
 
         byte[] bytes = key.getBytes(StandardCharsets.UTF_8);
 
-        this.key = new SecretKeySpec(bytes, "AES");
+        this.key = new SecretKeySpec(bytes, AES.getValue());
         this.algParamSpec = new IvParameterSpec(bytes);
     }
 
@@ -40,7 +42,7 @@ public class AES256 implements Crypto {
 
             return Base64.getEncoder().encodeToString(encrypted);
         } catch (Exception e) {
-            throw new RuntimeException(e);
+            throw new EncryptException(e);
         }
     }
 
@@ -55,7 +57,7 @@ public class AES256 implements Crypto {
 
             return new String(decrypted, StandardCharsets.UTF_8);
         } catch (Exception e) {
-            throw new RuntimeException(e);
+            throw new EncryptException(e);
         }
     }
 }
