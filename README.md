@@ -1,6 +1,5 @@
 # Worker-Hub(워커 허브)
 
-[![Build Status](https://app.travis-ci.com/worker-hub/worker-hub-backend.svg?branch=master)](https://app.travis-ci.com/worker-hub/worker-hub-backend)
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/08be7e1934a6450594e17c96d95c0c5d)](https://www.codacy.com/gh/worker-hub/worker-hub-backend/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=worker-hub/worker-hub-backend&amp;utm_campaign=Badge_Grade)
 
 ## 프로젝트 설명
@@ -9,7 +8,7 @@
 
 ## 기술 스택
 ### 애플리케이션
-- Java(11)
+- Java 11
 - Spring Framework
     - Spring Boot
     - Spring MVC
@@ -22,7 +21,7 @@
 
 ### 인프라 아키텍처
 - Git
-- Travis CI
+- Github Actions
 - Slack(alarm)
 
 ## 개발자
@@ -31,7 +30,7 @@
   - 프로젝트 구조 및 초기 설정 구성
   - DB 설계
   - JPA Model 설계
-  - Travis CI 설정
+  - Github Actions 설정
 - [MyPottery](https://github.com/MyPottery)
   - DB 설계
 > ### Frontend
