@@ -1,4 +1,4 @@
-package com.breakingbad.workerhub.common.audting;
+package com.breakingbad.workerhub.domain.audting;
 
 import lombok.Getter;
 import org.springframework.data.annotation.CreatedDate;
