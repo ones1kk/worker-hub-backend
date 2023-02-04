@@ -1,10 +1,10 @@
 package com.breakingbad.workerhub.domain.company;
 
-import com.breakingbad.workerhub.common.audting.IdAuditingEntity;
-import com.breakingbad.workerhub.common.component.Address;
-import com.breakingbad.workerhub.common.component.PhoneNumber;
-import com.breakingbad.workerhub.common.constant.CompanyClassification;
-import com.breakingbad.workerhub.common.constant.YesOrNo;
+import com.breakingbad.workerhub.domain.audting.IdAuditingEntity;
+import com.breakingbad.workerhub.domain.component.Address;
+import com.breakingbad.workerhub.domain.component.PhoneNumber;
+import com.breakingbad.workerhub.domain.constant.CompanyClassification;
+import com.breakingbad.workerhub.domain.constant.YesOrNo;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 

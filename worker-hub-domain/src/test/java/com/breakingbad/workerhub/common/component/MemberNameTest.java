@@ -1,5 +1,6 @@
 package com.breakingbad.workerhub.common.component;
 
+import com.breakingbad.workerhub.domain.component.MemberName;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.params.ParameterizedTest;

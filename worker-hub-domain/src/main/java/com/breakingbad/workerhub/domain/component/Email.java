@@ -1,4 +1,4 @@
-package com.breakingbad.workerhub.common.component;
+package com.breakingbad.workerhub.domain.component;
 
 import com.breakingbad.workerhub.core.converter.CryptoConverter;
 import io.github.ones1kk.assertion.core.Asserts;

@@ -1,6 +1,6 @@
 package com.breakingbad.workerhub.domain.employeerank;
 
-import com.breakingbad.workerhub.common.audting.IdAuditingEntity;
+import com.breakingbad.workerhub.domain.audting.IdAuditingEntity;
 import com.breakingbad.workerhub.domain.department.Department;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

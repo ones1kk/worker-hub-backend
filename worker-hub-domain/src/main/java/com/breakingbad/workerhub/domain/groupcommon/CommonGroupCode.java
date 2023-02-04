@@ -1,7 +1,7 @@
 package com.breakingbad.workerhub.domain.groupcommon;
 
-import com.breakingbad.workerhub.common.audting.IdAuditingEntity;
-import com.breakingbad.workerhub.common.constant.YesOrNo;
+import com.breakingbad.workerhub.domain.audting.IdAuditingEntity;
+import com.breakingbad.workerhub.domain.constant.YesOrNo;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 

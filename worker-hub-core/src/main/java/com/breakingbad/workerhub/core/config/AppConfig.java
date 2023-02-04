@@ -37,7 +37,6 @@ public class AppConfig {
      * @see AES256
      */
     @Bean
-    @Primary
     public Crypto crypto(@NotBlank @Value("${encryption.key}") String key) {
         return new AES256(key);
     }
@@ -49,7 +48,6 @@ public class AppConfig {
      * @see BCryptPasswordEncoder
      */
     @Bean
-    @Primary
     static PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
