@@ -1,8 +1,8 @@
 package com.breakingbad.workerhub.domain.department;
 
 import com.breakingbad.workerhub.domain.audting.IdAuditingEntity;
-import com.breakingbad.workerhub.domain.constant.YesOrNo;
 import com.breakingbad.workerhub.domain.company.Company;
+import com.breakingbad.workerhub.domain.constant.YesOrNo;
 import com.breakingbad.workerhub.domain.rank.Rank;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
