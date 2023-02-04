@@ -2,12 +2,12 @@
 
 ## 프로젝트 구조
 ### 공통
-1. 그룹명: *com.breakingbad.workerhub* 
+1. 그룹명: **com.breakingbad.workerhub** 
    1. 팀이름: Breaking Bad 
    2. 프로젝트명: Worker-Hub Backend
 2. Architecture 및 Directory
-   1. Architecture는 Monolithic > Multi-Module 방식으로 구성한다.
-   2. Directory 구조는 *기본적*으로 도메인형 디렉토리 방식으로 구성한다.
+   1. Architecture는 **Monolithic > Multi Module** 방식으로 구성한다.
+   2. Directory 구조는 **도메인형 디렉토리 방식**으로 구성한다.
 
 ### 모듈
 1. api
@@ -15,7 +15,7 @@
       1. Application Services 및 Infrastructure Services...을 담당한다.
    2. 최초 external, internal로 패키지를 구성한다.
       1. external: 추후 외부에 제공할 api를 관리하기 위한 패키지.
-      2. internal: *worker-hub-backend* 프로젝트 내부에서 사용할 api 파일들이 작성 될 패키지.
+      2. internal: **worker-hub-backend** 프로젝트 내부에서 사용할 api 파일들이 작성 될 패키지.
 2. common
    1. 전역적으로 사용할 수 있는 Utils, Exception, Constant... 정의 되어 있는 모듈이다.
    2. Java 외 의존성 주입은 지양한다.
