@@ -23,8 +23,9 @@ public class AES256 implements Crypto {
 
     public AES256(String key) {
         Asserts.that(key)
-                .as("AES256 key는 16자리 문자가 와야합니다.'{}'", key)
-                .isNotNull().hasText().asLength().isEqualTo(16);
+                .isNotNull().hasText().asLength()
+                .as("16자리 문자가 와야합니다. key: '{}'", key)
+                .isEqualTo(16);
 
         byte[] bytes = key.getBytes(StandardCharsets.UTF_8);
 

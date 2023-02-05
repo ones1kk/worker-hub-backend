@@ -28,7 +28,7 @@ public class Rank {
     @Column(name = "rank_description")
     private String description;
 
-    @Column(name = "sort_number", nullable = false)
+    @Column(name = "sort_no", nullable = false)
     private Integer sortNumber;
 
     @ManyToOne(fetch = LAZY)

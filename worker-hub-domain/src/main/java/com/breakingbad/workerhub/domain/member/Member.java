@@ -41,20 +41,20 @@ public class Member extends IdAuditingEntity {
     @Embedded
     private Address address;
 
-    @Enumerated(value = STRING)
     @Column(name = "email_receive_yn", length = 1)
+    @Enumerated(value = STRING)
     private YesOrNo emailReceiveYn;
 
-    @Enumerated(value = STRING)
     @Column(name = "sms_receive_yn", length = 1)
+    @Enumerated(value = STRING)
     private YesOrNo smsReceiveYn;
 
-    @Enumerated(value = STRING)
     @Column(name = "delete_yn", length = 1)
+    @Enumerated(value = STRING)
     private YesOrNo deleteYn;
 
-    @Enumerated(value = STRING)
     @Column(name = "employee_yn")
+    @Enumerated(value = STRING)
     private YesOrNo employeeYn;
 
 }

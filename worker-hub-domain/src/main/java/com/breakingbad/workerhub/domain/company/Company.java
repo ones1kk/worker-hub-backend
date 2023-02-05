@@ -33,15 +33,15 @@ public class Company extends IdAuditingEntity {
     @Embedded
     @AttributeOverrides(
             @AttributeOverride(name = "phoneNumber",
-                    column = @Column(name = "cp_phone_number", length = 12))
+                    column = @Column(name = "cp_phone_no", length = 12))
     )
     private PhoneNumber phoneNumber;
 
-    @Enumerated(value = STRING)
     @Column(name = "cp_clssification_code")
+    @Enumerated(value = STRING)
     private CompanyClassification companyClassification;
 
-    @Enumerated(value = STRING)
     @Column(name = "delete_yn", length = 1)
+    @Enumerated(value = STRING)
     private YesOrNo deleteYn;
 }

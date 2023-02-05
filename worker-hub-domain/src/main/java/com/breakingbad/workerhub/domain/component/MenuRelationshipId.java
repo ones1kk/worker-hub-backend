@@ -3,7 +3,6 @@ package com.breakingbad.workerhub.domain.component;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 
-import javax.persistence.Column;
 import javax.persistence.Embeddable;
 import javax.persistence.JoinColumn;
 import java.io.Serializable;
@@ -11,12 +10,12 @@ import java.io.Serializable;
 @Getter
 @EqualsAndHashCode
 @Embeddable
-public class GroupCodeId implements Serializable {
+public class MenuRelationshipId implements Serializable {
 
-    @JoinColumn(name = "group_code")
-    private String groupCode;
+    @JoinColumn(name = "menu_id")
+    private Long baseMenuId;
 
-    @Column(name = "code")
-    private String code;
+    @JoinColumn(name = "menu_id")
+    private Long opponentMenuId;
 
 }
