@@ -91,11 +91,11 @@
 2. Test Framework는 Junit5며 실제 검증 코드는 [AssertJ](https://joel-costigliola.github.io/assertj/)로 작성한다.
    1. 기본적으로 BDD(Behaviour-Driven Development) 기반으로 작성한다.
    2. 생성, 성공 및 실패 케이스를 작성한다.
-      1. Feature : 테스트에 대상의 기능/책임을 명시한다.
-      2. Scenario : 테스트 목적에 대한 상황을 설명한다.
-      3. Given : 시나리오 진행에 필요한 값을 설정한다.
-      4. When : 시나리오를 진행하는데 필요한 조건을 명시한다.
-      5. Then : 시나리오를 완료했을 때 보장해야 하는 결과를 명시한다.
+      1. Feature: 테스트에 대상의 기능/책임을 명시한다.
+      2. Scenario: 테스트 목적에 대한 상황을 설명한다.
+      3. Given: 시나리오 진행에 필요한 값을 설정한다.
+      4. When: 시나리오를 진행하는데 필요한 조건을 명시한다.
+      5. Then: 시나리오를 완료했을 때 보장해야 하는 결과를 명시한다.
 3. Domain Layer의 경우 DB 의존성을 낮추기 위해 Repository 관련 Mocking을 강제한다. 
 
 ## Git 전략
@@ -130,7 +130,4 @@
 
 
 ## ERD
-> [ERDCloud](https://www.erdcloud.com/d/CKSfMbhWhHDN52AiS)  
-
-
-
+> [ERDCloud](https://www.erdcloud.com/d/CKSfMbhWhHDN52AiS)
