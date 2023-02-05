@@ -1,6 +1,8 @@
 package com.breakingbad.workerhub.domain.commoncode;
 
 import com.breakingbad.workerhub.domain.audting.IdAuditingEntity;
+import com.breakingbad.workerhub.domain.component.CodeIntegerValue;
+import com.breakingbad.workerhub.domain.component.CodeStringValue;
 import com.breakingbad.workerhub.domain.component.GroupCodeId;
 import com.breakingbad.workerhub.domain.constant.YesOrNo;
 import com.breakingbad.workerhub.domain.groupcommon.CommonGroupCode;
@@ -32,29 +34,17 @@ public class CommonCode extends IdAuditingEntity {
     @Column(name = "code_description")
     private String description;
 
-    @Column(name = "code_char_value1")
-    private String charValue1;
+    @Embedded
+    private CodeStringValue codeStringValue;
 
-    @Column(name = "code_char_value2")
-    private String charValue2;
+    @Embedded
+    private CodeIntegerValue codeIntegerValue;
 
-    @Column(name = "code_char_value3")
-    private String charValue3;
+    @Column(name = "sort_no")
+    private Integer sortNo;
 
-    @Column(name = "code_int_value1")
-    private Integer intValue1;
-
-    @Column(name = "code_int_value2")
-    private Integer intValue2;
-
-    @Column(name = "code_int_value3")
-    private Integer intValue3;
-
-    @Column(name = "sort_number")
-    private Integer sortNumber;
-
-    @Enumerated(value = STRING)
     @Column(name = "use_yn", length = 1)
+    @Enumerated(value = STRING)
     private YesOrNo useYn;
 
 }

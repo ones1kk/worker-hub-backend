@@ -24,8 +24,8 @@ public class Employee extends IdAuditingEntity {
     @Column(name = "employee_id")
     private Long id;
 
-    @Enumerated(value = STRING)
     @Column(name = "delete_yn", length = 1)
+    @Enumerated(value = STRING)
     private YesOrNo deleteYn;
 
     @OneToOne(fetch = LAZY)

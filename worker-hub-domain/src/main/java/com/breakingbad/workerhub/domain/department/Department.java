@@ -38,8 +38,8 @@ public class Department extends IdAuditingEntity {
     @Column(name = "department_level", nullable = false)
     private Integer level;
 
-    @Enumerated(value = STRING)
     @Column(name = "leaf_node_yn", nullable = false)
+    @Enumerated(value = STRING)
     private YesOrNo leafNodeYn;
 
     @ManyToOne(fetch = LAZY)

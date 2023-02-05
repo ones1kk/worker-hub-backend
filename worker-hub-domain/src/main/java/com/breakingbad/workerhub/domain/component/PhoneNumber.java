@@ -18,7 +18,7 @@ import static lombok.AccessLevel.PROTECTED;
 @Embeddable
 public class PhoneNumber {
 
-    @Column(name = "phone_number", length = 11)
+    @Column(name = "phone_no", length = 11)
     @Convert(converter = CryptoConverter.class)
     private String phoneNumber;
 

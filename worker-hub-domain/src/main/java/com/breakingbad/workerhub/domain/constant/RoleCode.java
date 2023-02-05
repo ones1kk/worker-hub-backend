@@ -5,13 +5,16 @@ import lombok.RequiredArgsConstructor;
 
 @Getter
 @RequiredArgsConstructor
-public enum YesOrNo {
+public enum RoleCode {
 
-    Y("Y", "YES"),
+    ROLE_CODE_01("ROLE_CODE_01", ""),
 
-    N("N", "NO");
+    ROLE_CODE_02("ROLE_CODE_02", ""),
+
+    ROLE_CODE_03("ROLE_CODE_03", "");
 
     private final String code;
 
-    private final String value;
+    private final String description;
+
 }

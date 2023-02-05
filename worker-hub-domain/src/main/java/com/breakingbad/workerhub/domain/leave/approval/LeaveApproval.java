@@ -23,8 +23,8 @@ public class LeaveApproval extends IdAuditingEntity {
     @Column(name = "leave_approval_id")
     private Long id;
 
-    @Enumerated(value = STRING)
     @Column(name = "leave_approval")
+    @Enumerated(value = STRING)
     private YesOrNo approvalYn;
 
     @ManyToOne(fetch = LAZY)

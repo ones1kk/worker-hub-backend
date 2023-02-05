@@ -1,6 +1,8 @@
 # Worker-Hub(워커 허브)
 
+![build](https://github.com/worker-hub/worker-hub-backend/actions/workflows/build.yml/badge.svg)
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/08be7e1934a6450594e17c96d95c0c5d)](https://www.codacy.com/gh/worker-hub/worker-hub-backend/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=worker-hub/worker-hub-backend&amp;utm_campaign=Badge_Grade)
+[![codecov](https://codecov.io/gh/worker-hub/worker-hub-backend/branch/master/graph/badge.svg?token=46LB847FBH)](https://codecov.io/gh/worker-hub/worker-hub-backend)
 
 ## 프로젝트 설명
 **Worker-Hub(워커 허브)** 는 통합 인력 관리를 지원해주는 웹 서비스입니다.

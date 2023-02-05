@@ -28,10 +28,11 @@ public class CommonGroupCode extends IdAuditingEntity {
     @Column(name = "group_code_description")
     private String description;
 
-    @Column(name = "sort_number")
+    @Column(name = "sort_no")
     private Integer sortNumber;
 
-    @Enumerated(value = STRING)
     @Column(name = "use_yn")
+    @Enumerated(value = STRING)
     private YesOrNo useYn;
+
 }

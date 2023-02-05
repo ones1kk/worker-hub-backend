@@ -3,7 +3,6 @@ jar { enabled = false }
 
 dependencies {
     api project(":worker-hub-api")
-    api project(":worker-hub-common")
 
     // Spring MVC
     api "org.springframework.boot:spring-boot-starter-web"

@@ -23,8 +23,8 @@ public class LeaveRequest extends IdAuditingEntity {
     @Column(name = "leave_request_id")
     private Long id;
 
-    @Enumerated(value = STRING)
     @Column(name = "leave_classification_code")
+    @Enumerated(value = STRING)
     private LeaveClassification leaveClassification;
 
     @Column(name = "leave_reasons", columnDefinition = "text")
@@ -36,7 +36,7 @@ public class LeaveRequest extends IdAuditingEntity {
     @Column(name = "leave_end_date")
     private LocalDate leaveEndDate;
 
-    @Enumerated(value = STRING)
     @Column(name = "approval_yn")
+    @Enumerated(value = STRING)
     private YesOrNo approvalYn;
 }

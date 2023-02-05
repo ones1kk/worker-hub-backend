@@ -38,6 +38,7 @@ class AES256Test {
 
         @ParameterizedTest
         @ValueSource(strings = {"ones1k95@gmail.com", "hyone996@gmail.com", "omega0493@naver.com"})
+        @DisplayName("암호화 여부를 확인한다.")
         void encrypted(String value) throws Exception {
             String encrypted = crypto.encrypt(value);
 
@@ -46,6 +47,7 @@ class AES256Test {
 
         @ParameterizedTest
         @ValueSource(strings = {"ones1k95@gmail.com", "hyone996@gmail.com", "omega0493@naver.com"})
+        @DisplayName("암호화 된 값이 정상적으로 복호화 되는지 확인한다.")
         void success(String value) throws Exception {
             // given
             String encrypted = crypto.encrypt(value);
