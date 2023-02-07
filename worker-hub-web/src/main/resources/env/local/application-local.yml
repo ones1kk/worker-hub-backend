@@ -27,7 +27,6 @@ spring:
       ddl-auto: create
     properties:
       hibernate:
-        show_sql: false
         format_sql: true
   data:
     web:

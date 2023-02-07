@@ -13,7 +13,8 @@ import static lombok.AccessLevel.PROTECTED;
 
 @Getter
 @NoArgsConstructor(access = PROTECTED)
-@Entity(name = "employee_rank")
+@Table(name = "employee_rank")
+@Entity
 public class EmployeeRank extends IdAuditingEntity {
 
     @Id

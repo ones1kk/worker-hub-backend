@@ -12,7 +12,8 @@ import static lombok.AccessLevel.PROTECTED;
 
 @Getter
 @NoArgsConstructor(access = PROTECTED)
-@Entity(name = "menu_relationship")
+@Table(name = "menu_relationship")
+@Entity
 public class MenuRelationship {
 
     @EmbeddedId

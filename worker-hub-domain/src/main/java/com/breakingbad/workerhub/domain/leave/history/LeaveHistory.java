@@ -14,7 +14,8 @@ import static lombok.AccessLevel.PROTECTED;
 
 @Getter
 @NoArgsConstructor(access = PROTECTED)
-@Entity(name = "leave_history")
+@Table(name = "leave_history")
+@Entity
 public class LeaveHistory {
 
     @Id

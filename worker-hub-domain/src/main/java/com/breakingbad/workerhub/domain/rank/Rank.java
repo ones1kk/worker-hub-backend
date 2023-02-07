@@ -1,7 +1,8 @@
 package com.breakingbad.workerhub.domain.rank;
 
 import com.breakingbad.workerhub.domain.department.Department;
-import lombok.*;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
@@ -10,11 +11,9 @@ import static javax.persistence.GenerationType.IDENTITY;
 import static lombok.AccessLevel.PROTECTED;
 
 @Getter
-@Builder
-@AllArgsConstructor
 @NoArgsConstructor(access = PROTECTED)
-@ToString
-@Entity(name = "rank")
+@Table(name = "rank")
+@Entity
 public class Rank {
 
     @Id

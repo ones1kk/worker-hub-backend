@@ -15,7 +15,8 @@ import static lombok.AccessLevel.PROTECTED;
 
 @Getter
 @NoArgsConstructor(access = PROTECTED)
-@Entity(name = "leave_request")
+@Table(name = "leave_request")
+@Entity
 public class LeaveRequest extends IdAuditingEntity {
 
     @Id
