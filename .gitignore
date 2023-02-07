@@ -45,3 +45,6 @@ application-secret-prd.yml
 ### log ###
 **/*.log
 logs/
+
+### docker ###
+docker/db/
