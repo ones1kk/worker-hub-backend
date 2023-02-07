@@ -17,7 +17,8 @@ import static lombok.AccessLevel.PROTECTED;
 
 @Getter
 @NoArgsConstructor(access = PROTECTED)
-@Entity(name = "common_code")
+@Table(name = "common_code")
+@Entity
 public class CommonCode extends IdAuditingEntity {
 
     @EmbeddedId

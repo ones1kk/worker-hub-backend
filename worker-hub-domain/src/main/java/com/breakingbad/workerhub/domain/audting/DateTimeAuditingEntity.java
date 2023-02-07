@@ -24,10 +24,4 @@ public abstract class DateTimeAuditingEntity {
     @Column(name = "last_modified_at", nullable = false)
     private LocalDateTime lastModifiedAt;
 
-    @PrePersist
-    public void prePersist() {
-        LocalDateTime now = LocalDateTime.now();
-        createAt = now;
-        lastModifiedAt = now;
-    }
 }

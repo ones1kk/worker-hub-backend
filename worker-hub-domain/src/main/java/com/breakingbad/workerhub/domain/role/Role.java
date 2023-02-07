@@ -14,7 +14,8 @@ import static lombok.AccessLevel.PROTECTED;
 
 @Getter
 @NoArgsConstructor(access = PROTECTED)
-@Entity(name = "role")
+@Table(name = "role")
+@Entity
 public class Role extends IdAuditingEntity {
 
     @Id

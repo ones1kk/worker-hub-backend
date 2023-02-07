@@ -5,17 +5,15 @@ import com.breakingbad.workerhub.domain.constant.YesOrNo;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Enumerated;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 import static javax.persistence.EnumType.STRING;
 import static lombok.AccessLevel.PROTECTED;
 
 @Getter
 @NoArgsConstructor(access = PROTECTED)
-@Entity(name = "common_group_code")
+@Table(name = "common_group_code")
+@Entity
 public class CommonGroupCode extends IdAuditingEntity {
 
     @Id
