@@ -1,4 +1,4 @@
-package com.breakingbad.workerhub.domain.menu.realationship;
+package com.breakingbad.workerhub.domain.menurelationship;
 
 import com.breakingbad.workerhub.domain.component.MenuRelationshipId;
 import com.breakingbad.workerhub.domain.menu.Menu;

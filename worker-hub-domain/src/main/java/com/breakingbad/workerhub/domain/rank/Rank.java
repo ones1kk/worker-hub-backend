@@ -12,7 +12,7 @@ import static lombok.AccessLevel.PROTECTED;
 
 @Getter
 @NoArgsConstructor(access = PROTECTED)
-@Table(name = "rank")
+@Table(name = "ranks")
 @Entity
 public class Rank {
 
