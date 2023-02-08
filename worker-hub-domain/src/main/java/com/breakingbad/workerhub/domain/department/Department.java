@@ -3,14 +3,10 @@ package com.breakingbad.workerhub.domain.department;
 import com.breakingbad.workerhub.domain.audting.IdAuditingEntity;
 import com.breakingbad.workerhub.domain.company.Company;
 import com.breakingbad.workerhub.domain.constant.YesOrNo;
-import com.breakingbad.workerhub.domain.rank.Rank;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import org.hibernate.annotations.BatchSize;
 
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.List;
 
 import static javax.persistence.EnumType.STRING;
 import static javax.persistence.FetchType.LAZY;
@@ -19,7 +15,7 @@ import static lombok.AccessLevel.PROTECTED;
 
 @Getter
 @NoArgsConstructor(access = PROTECTED)
-@Table(name = "department")
+@Table(name = "departments")
 @Entity
 public class Department extends IdAuditingEntity {
 
@@ -44,9 +40,5 @@ public class Department extends IdAuditingEntity {
     @ManyToOne(fetch = LAZY)
     @JoinColumn(name = "company_id")
     private Company company;
-
-    @BatchSize(size = 50)
-    @OneToMany(mappedBy = "department")
-    private List<Rank> ranks = new ArrayList<>();
 
 }
