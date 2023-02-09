@@ -105,9 +105,8 @@
 #### 구성
 1. master
 2. develop
-3. 개인 브런치(미적용)
 
-### 전략(미적용)
+### 전략
 1. master: 실제 운영에 배포 될 브런치로 해당 브런치.
    1. Require a pull request before merging.
       1. 해당 브런치로 Direct Push를 금하며 PR을 통한 Merge가 이루어진다.
@@ -125,9 +124,6 @@
       1. PR 후 Conversation이 모두 solved 되어야만 Merge가 가능하다.
    4. Require signed commits.
       1. Github에서 발행 된 GPG Key를 가진 사람이 커밋할 수 있다.
-
-3. 개인 브런치: Role별 작업하는 브런치.
-
 
 ## ERD
 > [ERDCloud](https://www.erdcloud.com/d/CKSfMbhWhHDN52AiS)
