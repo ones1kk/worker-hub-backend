@@ -15,6 +15,9 @@ ext {
     p6SpyVersion = "1.8.1"
     querydslVersion = "5.0.0"
     h2Version = "1.4.199"
+    retrofitVersion = "2.7.2"
+    retrofitConverterVersion = "2.7.2"
+    loggingInterceptorVersion = "3.9.0"
 }
 
 repositories {

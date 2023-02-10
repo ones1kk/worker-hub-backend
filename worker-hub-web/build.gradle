@@ -13,5 +13,13 @@ dependencies {
     // Spring Doc
     api "org.springdoc:springdoc-openapi-ui:${springdocVersion}"
 
+    // Spring Quartz
+    api "org.springframework.boot:spring-boot-starter-quartz"
+
+    // Retrofit2
+    api "com.squareup.retrofit2:retrofit:${retrofitVersion}"
+    api "com.squareup.retrofit2:converter-gson:${retrofitConverterVersion}"
+    api "com.squareup.okhttp3:logging-interceptor:${loggingInterceptorVersion}"
+
     testImplementation "org.springframework.security:spring-security-test"
 }
