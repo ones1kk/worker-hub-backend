@@ -7,9 +7,9 @@ import org.springframework.stereotype.Component;
 import javax.persistence.AttributeConverter;
 import javax.persistence.Convert;
 
+@RequiredArgsConstructor
 @Convert
 @Component
-@RequiredArgsConstructor
 public class PasswordConverter implements AttributeConverter<String, String> {
 
     private final PasswordEncoder passwordEncoder;
