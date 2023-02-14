@@ -1,6 +1,6 @@
 package com.breakingbad.workerhub.domain.rolemenu;
 
-import com.breakingbad.workerhub.constant.MenuAuthorizationCode;
+import com.breakingbad.workerhub.core.constant.MenuAuthorizationCode;
 import com.breakingbad.workerhub.domain.audting.IdAuditingEntity;
 import com.breakingbad.workerhub.domain.component.RoleMenuId;
 import com.breakingbad.workerhub.domain.employee.Employee;
@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 
 import static javax.persistence.EnumType.STRING;
-import static javax.persistence.FetchType.*;
+import static javax.persistence.FetchType.LAZY;
 import static lombok.AccessLevel.PROTECTED;
 
 @Getter

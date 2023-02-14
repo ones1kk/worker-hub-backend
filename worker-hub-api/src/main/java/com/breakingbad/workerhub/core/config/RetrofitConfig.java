@@ -2,8 +2,6 @@ package com.breakingbad.workerhub.core.config;
 
 import com.breakingbad.workerhub.constant.RetrofitAPI;
 import com.breakingbad.workerhub.core.api.kasi.KasiAPIs;
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 import okhttp3.OkHttpClient;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;

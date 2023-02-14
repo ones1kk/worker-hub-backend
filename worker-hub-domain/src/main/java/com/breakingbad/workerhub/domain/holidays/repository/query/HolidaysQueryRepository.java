@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 import java.time.Year;
 import java.util.List;
 
-import static com.breakingbad.workerhub.domain.holidays.QHolidays.*;
+import static com.breakingbad.workerhub.domain.holidays.QHolidays.holidays;
 import static com.breakingbad.workerhub.domain.holidays.repository.HolidaysExpression.equalYear;
 
 @RequiredArgsConstructor

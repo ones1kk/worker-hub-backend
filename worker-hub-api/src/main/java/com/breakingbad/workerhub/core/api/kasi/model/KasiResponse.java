@@ -1,12 +1,10 @@
 package com.breakingbad.workerhub.core.api.kasi.model;
 
 import com.breakingbad.workerhub.domain.holidays.Holidays;
-import com.google.gson.annotations.SerializedName;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
-import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.Year;
 import java.util.ArrayList;
@@ -17,7 +15,7 @@ import static lombok.AccessLevel.PROTECTED;
 @Getter
 @NoArgsConstructor(access = PROTECTED)
 @ToString
-public class KasiResponse  {
+public class KasiResponse {
 
     private Response response;
 

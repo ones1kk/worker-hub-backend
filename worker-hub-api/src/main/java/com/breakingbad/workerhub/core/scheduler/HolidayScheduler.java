@@ -8,7 +8,6 @@ import com.breakingbad.workerhub.domain.holidays.Holidays;
 import com.breakingbad.workerhub.external.domain.holidays.HolidaysService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 import retrofit2.Call;
