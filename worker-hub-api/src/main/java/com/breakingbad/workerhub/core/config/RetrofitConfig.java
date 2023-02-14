@@ -29,19 +29,11 @@ public class RetrofitConfig {
                 .build();
     }
 
-    @Bean
-    public Gson gson() {
-        return new GsonBuilder()
-                .setLenient()
-                .setPrettyPrinting()
-                .create();
-    }
-
     @Bean("kasiRetrofit")
     public Retrofit kasiRetrofit(OkHttpClient client) {
         return new Retrofit.Builder()
                 .baseUrl(RetrofitAPI.KASI_API_ADDRESS)
-                .addConverterFactory(GsonConverterFactory.create(gson()))
+                .addConverterFactory(GsonConverterFactory.create())
                 .client(client)
                 .build();
     }

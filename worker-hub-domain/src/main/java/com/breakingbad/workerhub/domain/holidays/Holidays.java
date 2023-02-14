@@ -28,4 +28,10 @@ public class Holidays extends IdAuditingEntity {
     @Convert(converter = YearConverter.class)
     private Year year;
 
+    public Holidays(Year year, String name, LocalDate holidayDate) {
+        this.year = year;
+        this.name = name;
+        this.holidayDate = holidayDate;
+    }
+
 }

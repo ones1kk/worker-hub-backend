@@ -5,7 +5,7 @@ dependencies {
     api project(':worker-hub-domain')
 
     // Spring MVC
-    api 'org.springframework.boot:spring-boot-starter-web'
+    api "org.springframework.boot:spring-boot-starter-web"
 
     // Spring Quartz
     api "org.springframework.boot:spring-boot-starter-quartz"
@@ -14,5 +14,7 @@ dependencies {
     api "com.squareup.retrofit2:retrofit:${retrofitVersion}"
     api "com.squareup.retrofit2:converter-gson:${retrofitConverterVersion}"
     api "com.squareup.okhttp3:logging-interceptor:${loggingInterceptorVersion}"
+
+    annotationProcessor "org.springframework.boot:spring-boot-configuration-processor"
 
 }
