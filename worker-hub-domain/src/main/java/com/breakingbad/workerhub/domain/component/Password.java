@@ -1,5 +1,6 @@
 package com.breakingbad.workerhub.domain.component;
 
+import com.breakingbad.workerhub.constant.Patterns;
 import com.breakingbad.workerhub.core.converter.PasswordConverter;
 import io.github.ones1kk.assertion.core.Asserts;
 import lombok.Getter;
@@ -8,8 +9,6 @@ import lombok.NoArgsConstructor;
 import javax.persistence.Column;
 import javax.persistence.Convert;
 import javax.persistence.Embeddable;
-import javax.persistence.Transient;
-import java.util.regex.Pattern;
 
 import static lombok.AccessLevel.PROTECTED;
 
@@ -22,11 +21,8 @@ public class Password {
     @Convert(converter = PasswordConverter.class)
     private String password;
 
-    @Transient
-    private static final Pattern PASSWORD_PATTERN = Pattern.compile("^(?=.*[a-zA-Z])(?=.*\\d)(?=.*[@$!%*#?&])[a-zA-Z\\d@$!%*#?&]{8,}$");
-
     public Password(String password) {
-        Asserts.that(password).isNotNull().hasText().matches(PASSWORD_PATTERN);
+        Asserts.that(password).isNotNull().hasText().matches(Patterns.PASSWORD_PATTERN);
         this.password = password;
     }
 
