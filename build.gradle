@@ -12,7 +12,6 @@ ext {
     commonsIoVersion = "2.11.0"
     assertionsVersion = "0.0.5"
     springdocVersion = "1.6.14"
-    p6SpyVersion = "1.8.1"
     querydslVersion = "5.0.0"
     h2Version = "1.4.199"
     retrofitVersion = "2.7.2"

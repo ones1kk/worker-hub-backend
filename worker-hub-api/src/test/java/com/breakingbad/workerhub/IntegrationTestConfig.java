@@ -1,5 +1,7 @@
 package com.breakingbad.workerhub;
 
+import com.breakingbad.workerhub.constant.Profiles;
+import com.breakingbad.workerhub.core.config.AppConfig;
 import com.breakingbad.workerhub.core.config.AuditConfig;
 import com.breakingbad.workerhub.core.config.RetrofitConfig;
 import com.breakingbad.workerhub.core.crypto.Crypto;
@@ -12,10 +14,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 public class IntegrationTestConfig {
 
     @MockBean
-    private Crypto crypto;
-
-    @MockBean
-    private PasswordEncoder passwordEncoder;
+    private AppConfig appConfig;
 
     @MockBean
     private JpaMetamodelMappingContext jpaMetamodelMappingContext;
