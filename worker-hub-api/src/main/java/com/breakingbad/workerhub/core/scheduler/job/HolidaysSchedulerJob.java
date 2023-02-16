@@ -15,7 +15,9 @@ public class HolidaysSchedulerJob {
     private final HolidayScheduler scheduler;
 
     /**
-     * 매년 12월 25일 00시 15분에 다음 년도의 공휴일 정보를 저장한다.
+     * 매년 12월 25일 00시 15분에 N 년도 두의 공휴일 정보를 저장한다.
+     *
+     * <p> N년 -> 정책적으로 정해야함.
      *
      * @throws IOException
      */
