@@ -1,6 +1,6 @@
 package com.breakingbad.workerhub.domain.member;
 
-import com.breakingbad.workerhub.TestIntegrationConfig;
+import com.breakingbad.workerhub.IntegrationTestConfig;
 import com.breakingbad.workerhub.domain.member.repository.MemberRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,7 +14,7 @@ import static org.assertj.core.api.Assertions.assertThat;
  * {@code @DataJpaTest} Sample
  */
 @DataJpaTest
-@Import(TestIntegrationConfig.class)
+@Import(IntegrationTestConfig.class)
 @ActiveProfiles("test")
 class MemberTest {
 
@@ -29,4 +29,5 @@ class MemberTest {
 
         assertThat(findMember).isNotNull();
     }
+
 }

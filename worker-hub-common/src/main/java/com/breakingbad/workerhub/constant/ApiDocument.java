@@ -5,7 +5,7 @@ import lombok.RequiredArgsConstructor;
 
 @Getter
 @RequiredArgsConstructor
-public enum OpenApiInformation {
+public enum ApiDocument {
 
     TITLE("Worker Hub OPEN API"),
 
@@ -18,4 +18,5 @@ public enum OpenApiInformation {
     CONTACT_EMAIL("workerhub.official@gmail.com");
 
     private final String value;
+
 }

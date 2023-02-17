@@ -18,8 +18,6 @@ dependencies {
     // Mysql
     api 'mysql:mysql-connector-java'
 
-    // H2
-    testImplementation "com.h2database:h2:${h2Version}"
 }
 
 def querydslDir = "$buildDir/generated/querydsl"
