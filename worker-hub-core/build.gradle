@@ -12,4 +12,7 @@ dependencies {
 
     // Spring Doc
     api "org.springdoc:springdoc-openapi-ui:${springdocVersion}"
+
+    annotationProcessor "org.springframework.boot:spring-boot-configuration-processor"
+
 }

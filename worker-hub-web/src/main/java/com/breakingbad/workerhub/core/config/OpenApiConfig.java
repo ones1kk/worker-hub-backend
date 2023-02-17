@@ -1,4 +1,4 @@
-package com.breakingbad.workerhub.config;
+package com.breakingbad.workerhub.core.config;
 
 import io.swagger.v3.oas.models.OpenAPI;
 import io.swagger.v3.oas.models.info.Contact;
@@ -7,7 +7,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
 
-import static com.breakingbad.workerhub.constant.OpenApiInformation.*;
+import static com.breakingbad.workerhub.constant.ApiDocument.*;
 
 @Configuration
 public class OpenApiConfig {
@@ -27,4 +27,5 @@ public class OpenApiConfig {
                 .name(CONTACT_NAME.getValue())
                 .email(CONTACT_EMAIL.getValue());
     }
+
 }

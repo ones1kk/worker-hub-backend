@@ -2,8 +2,17 @@ bootJar { enabled = true }
 jar { enabled = true }
 
 dependencies {
-    api project(':worker-hub-domain')
+    api project(":worker-hub-domain")
 
     // Spring MVC
-    api 'org.springframework.boot:spring-boot-starter-web'
+    api "org.springframework.boot:spring-boot-starter-web"
+
+    // Spring Quartz
+    api "org.springframework.boot:spring-boot-starter-quartz"
+
+    // Retrofit2
+    api "com.squareup.retrofit2:retrofit:${retrofitVersion}"
+    api "com.squareup.retrofit2:converter-gson:${retrofitConverterVersion}"
+    api "com.squareup.okhttp3:logging-interceptor:${loggingInterceptorVersion}"
+
 }

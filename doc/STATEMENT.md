@@ -107,13 +107,13 @@
 2. develop
 
 ### 전략
-1. master: 실제 운영에 배포 될 브런치로 해당 브런치.
+1. master: 실제 운영에 배포 될 브런치.
    1. Require a pull request before merging.
       1. 해당 브런치로 Direct Push를 금하며 PR을 통한 Merge가 이루어진다.
    2. Require status checks to pass before merging.
       1. 테스트 결과 이상이 없을 시에만 Merge가 가능하다.
    3. Require signed commits.
-      2. Github에서 발행 된 GPG Key를 가진 사람이 커밋할 수 있다.
+      1. Github에서 발행 된 GPG Key를 가진 사람이 커밋할 수 있다.
 
 2. develop: 개인이 작업한 코드들을 Merge 하는 브런치.
    1. Require a pull request before merging.
