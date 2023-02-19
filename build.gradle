@@ -54,6 +54,12 @@ subprojects {
                 srcDirs "src/main/resources/env/${profile}"
             }
         }
+
+        test {
+            resources {
+                srcDirs "src/test/resources/env/test"
+            }
+        }
     }
 
     repositories {
