@@ -17,14 +17,14 @@ class ProfilesTest {
     class ContainTest {
 
         @ParameterizedTest
-        @ValueSource(strings = {"prd", "dev", "local"})
+        @ValueSource(strings = {"prd", "dev", "local", "test"})
         @DisplayName("등록 되어 있는 profile은 true를 반환한다.")
         void contain_success(String profile) {
             assertThat(Profiles.contains(profile)).isTrue();
         }
 
         @ParameterizedTest
-        @ValueSource(strings = {"test", "release", "personal", "exe"})
+        @ValueSource(strings = {"release", "personal", "exe"})
         @DisplayName("등록 되어 있지 않은 profile은 false를 반환한다.")
         void contain_fail(String profile) {
             assertThat(Profiles.contains(profile)).isFalse();
@@ -47,10 +47,13 @@ class ProfilesTest {
 
             Profiles local = Profiles.from("local");
             assertThat(local).isEqualTo(Profiles.LOCAL);
+
+            Profiles test = Profiles.from("test");
+            assertThat(test).isEqualTo(Profiles.TEST);
         }
 
         @ParameterizedTest
-        @ValueSource(strings = {"test", "realease", "personal", "exe"})
+        @ValueSource(strings = {"release", "personal", "exe"})
         @DisplayName("등록 되어 있지 않은 profile은 AssertException을 던진다.")
         void from_fail(String profile) {
             assertThatExceptionOfType(AssertException.class).isThrownBy(() -> Profiles.from(profile));
@@ -73,6 +76,9 @@ class ProfilesTest {
 
             String local = Profiles.LOCAL.toString();
             assertThat(local).isEqualTo("local");
+
+            String test = Profiles.TEST.toString();
+            assertThat(test).isEqualTo("test");
         }
 
     }
