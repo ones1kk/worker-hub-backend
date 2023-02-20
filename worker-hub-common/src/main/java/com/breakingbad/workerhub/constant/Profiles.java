@@ -19,7 +19,9 @@ public enum Profiles {
 
     DEVELOPMENT("dev"),
 
-    LOCAL("local");
+    LOCAL("local"),
+
+    TEST("test");
 
     private final String name;
 

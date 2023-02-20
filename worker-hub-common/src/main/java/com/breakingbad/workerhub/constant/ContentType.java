@@ -57,6 +57,6 @@ public enum ContentType {
 
     private final String value;
 
-    private final String description;
+    private final String var;
 
 }

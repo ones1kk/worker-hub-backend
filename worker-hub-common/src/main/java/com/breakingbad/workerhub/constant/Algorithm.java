@@ -11,7 +11,11 @@ public enum Algorithm {
 
     AES("AES"),
 
-    HS256("HS256");
+    BASE256("BASE256"),
+
+    HS256("HS256"),
+
+    PBEWithMD5AndDES("PBEWithMD5AndDES");
 
     private final String value;
 
