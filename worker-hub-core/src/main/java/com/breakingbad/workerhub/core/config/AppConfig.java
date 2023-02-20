@@ -16,8 +16,8 @@ import javax.validation.constraints.NotBlank;
 public class AppConfig {
 
     /**
-     * <p>'application.yml'에 설정되어 있는 'spring.config.activate.on-profile'속성을</p>
-     * <p>{@link Value} annotation을 사용하여 가져오는 것을 지양한다.</p>
+     * <p>'application.yml'에 설정되어 있는 'spring.config.activate.on-profile'속성을
+     * <p>{@link Value} annotation을 사용하여 가져오는 것을 지양한다.
      *
      * @param profile local, dev, prd
      * @return {@code Profiles}

@@ -54,7 +54,7 @@ public class HolidayScheduler {
         String serviceKey = apiConfigProperties.getKasi().getKey();
         List<Holidays> holidays = new ArrayList<>();
         for (String month : MONTHS) {
-            Call<KasiResponse> call = kasiApis.getHolidaysByYearAndMonth(year.toString(), month, JSON.getDescription(), serviceKey);
+            Call<KasiResponse> call = kasiApis.getHolidaysByYearAndMonth(year.toString(), month, JSON.getVar(), serviceKey);
             Response<KasiResponse> response = call.execute();
 
             KasiResponse body = response.body();

@@ -22,8 +22,7 @@ public class KasiResponse {
     public List<Holidays> toHolidays() {
         List<Holidays> holidays = new ArrayList<>();
 
-        List<Item> itemList = response.getBody().getItems()
-                .getItem();
+        List<Item> itemList = response.getBody().getItems().getItem();
         itemList.forEach(item -> {
             String str = item.getLocdate().toString();
             int year = Integer.parseInt(str.substring(0, 4));
