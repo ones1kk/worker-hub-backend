@@ -13,6 +13,9 @@ dependencies {
     // Spring Doc
     api "org.springdoc:springdoc-openapi-ui:${springdocVersion}"
 
+    // Jasypt
+    api "com.github.ulisesbocchio:jasypt-spring-boot-starter:${jasyptVersion}"
+
     annotationProcessor "org.springframework.boot:spring-boot-configuration-processor"
 
 }

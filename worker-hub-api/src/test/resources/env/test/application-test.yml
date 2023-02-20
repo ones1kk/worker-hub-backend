@@ -2,20 +2,30 @@ spring:
   config:
     activate:
       on-profile: test
-    import: application-secret-test.yml
   datasource:
     driver-class-name: org.h2.Driver
     url: jdbc:h2:mem:testdb;MODE=MySQL;
     username: SA
     password:
-    initialization-mode: always
   h2:
     console:
       enabled: true
+  sql:
+    init:
+      mode: always
   jpa:
     database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
     hibernate:
       ddl-auto: create
 
+encryption:
+  key: ENC(VKKHCrpa8E73qPtlmBmEiiSrzbDOC1hCGMainARF3t0=)
 
+api:
+  #한국천문연구원
+  kasi:
+    key: ENC(14NnvSuPh+2h1E/aGIGoeoGVLzST38mJv0T0NP6CbNLUdAmX5EiqXdqvuOnPTUmJEbWHC15NgiI5WBVmdsPHYSV6vuSk9SLdMiXclIxunNarCnFlYa8PnqEPj2lDorf6eADZoBqtaiI=)
 
+jasypt:
+  encryptor:
+    password: ENC(RPcuiJEuZFE4Ti65xIXVBh1sW167wDh/gu9baSuJKnnzGltZEVo9K/mXUpwrGWsG)

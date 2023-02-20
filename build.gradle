@@ -17,6 +17,7 @@ ext {
     retrofitVersion = "2.7.2"
     retrofitConverterVersion = "2.7.2"
     loggingInterceptorVersion = "3.9.0"
+    jasyptVersion = "3.0.4"
 }
 
 repositories {
@@ -134,6 +135,7 @@ subprojects {
     }
 
     test {
+        systemProperty "jasypt.encryptor.password", System.getProperties().get("jasypt.encryptor.password")
         jacoco {
             destinationFile = file("$buildDir/jacoco/jacoco.exec")
         }
