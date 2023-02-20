@@ -37,12 +37,6 @@ out/
 ### VS Code ###
 .vscode/
 
-### application.yml ###
-application-secret-local.yml
-application-secret-dev.yml
-application-secret-prd.yml
-application-secret-test.yml
-
 ### log ###
 **/*.log
 logs/
