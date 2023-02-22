@@ -21,7 +21,6 @@ import java.util.List;
 import java.util.Map;
 
 import static com.breakingbad.workerhub.constant.ContentType.JSON;
-import static org.springframework.util.CollectionUtils.isEmpty;
 
 @Slf4j(topic = LoggerNames.KASI_API)
 @RequiredArgsConstructor
@@ -42,7 +41,7 @@ public class HolidayScheduler {
         List<Holidays> holidays = new ArrayList<>();
 
         Long count = holidaysService.findCountByYears(years);
-        if(hasHolidays(count)) {
+        if (hasHolidays(count)) {
             log.error("|=▒▒▒▒▒▒▒▒▒▒= SCHEDULE =▒▒▒▒▒▒▒▒▒▒=> holidays information is already saved...");
             return;
         }
@@ -61,6 +60,7 @@ public class HolidayScheduler {
 
     /**
      * 검토 예정
+     *
      * @param years
      * @return
      */
