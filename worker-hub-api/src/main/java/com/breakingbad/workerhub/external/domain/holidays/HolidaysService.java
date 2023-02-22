@@ -24,6 +24,10 @@ public class HolidaysService {
         return holidaysQueryRepository.findAllByYear(year);
     }
 
+    public Long findCountByYears(List<Year> years) {
+        return holidaysQueryRepository.findCountByYears(years);
+    }
+
     @Transactional
     public List<Holidays> saveAll(Collection<Holidays> holidays) {
         return holidaysRepository.saveAll(holidays);

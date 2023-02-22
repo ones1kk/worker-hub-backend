@@ -10,6 +10,7 @@ import java.util.List;
 
 import static com.breakingbad.workerhub.domain.holidays.QHolidays.holidays;
 import static com.breakingbad.workerhub.domain.holidays.repository.HolidaysExpression.equalYear;
+import static com.breakingbad.workerhub.domain.holidays.repository.HolidaysExpression.inYears;
 
 @RequiredArgsConstructor
 @Repository
@@ -21,6 +22,12 @@ public class HolidaysQueryRepository {
         return queryFactory.selectFrom(holidays)
                 .where(equalYear(year))
                 .fetch();
+    }
+
+    public Long findCountByYears(List<Year> years) {
+        return queryFactory.select(holidays.count())
+                .where(inYears(years))
+                .fetchOne();
     }
 
 }

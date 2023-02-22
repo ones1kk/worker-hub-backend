@@ -16,7 +16,9 @@ import retrofit2.Response;
 import java.io.IOException;
 import java.time.Year;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import static com.breakingbad.workerhub.constant.ContentType.JSON;
 import static org.springframework.util.CollectionUtils.isEmpty;
@@ -35,20 +37,43 @@ public class HolidayScheduler {
     private static final List<String> MONTHS = List.of("01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12");
 
     @Transactional
-    public void saveHolidaysByYears(Year year) throws IOException {
-        log.info("|=▒▒▒▒▒▒▒▒▒▒= SCHEDULE =▒▒▒▒▒▒▒▒▒▒=> start to save {} holidays information...", year);
-        List<Holidays> findHolidays = holidaysService.findAllByYear(year);
+    public void saveHolidaysByYears(List<Year> years) throws IOException {
+        log.info("|=▒▒▒▒▒▒▒▒▒▒= SCHEDULE =▒▒▒▒▒▒▒▒▒▒=> start to save holidays information...");
+        List<Holidays> holidays = new ArrayList<>();
 
-        if (!isEmpty(findHolidays)) {
-            log.error("|=▒▒▒▒▒▒▒▒▒▒= SCHEDULE =▒▒▒▒▒▒▒▒▒▒=> {} holidays information is already saved...", year);
+        Long count = holidaysService.findCountByYears(years);
+        if(hasHolidays(count)) {
+            log.error("|=▒▒▒▒▒▒▒▒▒▒= SCHEDULE =▒▒▒▒▒▒▒▒▒▒=> holidays information is already saved...");
             return;
         }
 
-        List<Holidays> holidays = getHolidays(year);
+        for (Year year : years) {
+            holidays.addAll(getHolidays(year));
+        }
         holidaysService.saveAll(holidays);
 
-        log.info("|=▒▒▒▒▒▒▒▒▒▒= SCHEDULE =▒▒▒▒▒▒▒▒▒▒=> finish to save {} holidays information...", year);
+        log.info("|=▒▒▒▒▒▒▒▒▒▒= SCHEDULE =▒▒▒▒▒▒▒▒▒▒=> finish to save holidays information...");
     }
+
+    private boolean hasHolidays(Long count) {
+        return count > 0L;
+    }
+
+    /**
+     * 검토 예정
+     * @param years
+     * @return
+     */
+    private Map<Year, List<String>> makeYearByMonth(List<Year> years) {
+        Map<Year, List<String>> result = new HashMap<>();
+        years.forEach(year -> result.put(year, MONTHS));
+
+//        years.stream().map(Year::toString)
+//                .collect(collectingAndThen(toMap(year -> year, MONTHS), Collections::unmodifiableMap));
+
+        return result;
+    }
+
 
     private List<Holidays> getHolidays(Year year) throws IOException {
         String serviceKey = apiConfigProperties.getKasi().getKey();
