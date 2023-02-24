@@ -13,4 +13,6 @@ public class Patterns {
 
     public static final Pattern NAME_PATTERN = Pattern.compile("^([a-zA-Z]).{2,16}|([가-힣]).{1,6}");
 
+    public static final Pattern URL_PATTERN = Pattern.compile("(https?:\\/\\/)?(www\\.)?[-a-zA-Z0-9@:%._\\+~#=]{2,256}\\.[a-z]{2,6}\\b([-a-zA-Z0-9@:%_\\+.~#?&//=]*)");
+
 }
