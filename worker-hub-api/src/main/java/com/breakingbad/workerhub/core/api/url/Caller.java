@@ -39,7 +39,7 @@ public class Caller {
         return new APIResponseHandlerFactory(apiUrl, json);
     }
 
-    private HttpURLConnection createConnection(APICallerConfiguration configuration) throws IOException, MalformedURLException {
+    private HttpURLConnection createConnection(APICallerConfiguration configuration) throws IOException {
         String requestURL = apiUrl.getRequestURL();
         Map<String, Object> params = configuration.getParams();
         List<String> paths = configuration.getPaths();
@@ -66,12 +66,12 @@ public class Caller {
     }
 
     private void configureConnection(HttpURLConnection connection, APICallerConfiguration configuration) throws ProtocolException {
-        if(configuration.getMethod() != null) {
+        if (configuration.getMethod() != null) {
             connection.setRequestMethod(configuration.getMethod().getValue());
         }
 
         RequestProperties requestProperties = configuration.getRequestProperties();
-        if(requestProperties != null) {
+        if (requestProperties != null) {
             String property = requestProperties.getProperty();
             String value = requestProperties.getValue();
             connection.setRequestProperty(property, value);

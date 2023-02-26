@@ -4,6 +4,8 @@ import com.breakingbad.workerhub.constant.APIUrls;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import lombok.RequiredArgsConstructor;
 
+import java.util.Objects;
+
 @RequiredArgsConstructor
 public class APIResponseHandlerFactory {
 
@@ -12,10 +14,10 @@ public class APIResponseHandlerFactory {
 
     @SuppressWarnings("unchecked")
     public <T> T getResponse(Class<T> valueType) throws JsonProcessingException {
-        switch (apiUrl) {
-            case KASI_HOLIDAYS: return (T) new KASIResponseHandler(json).handle();
-            default: return (T) new Object();
+        if (Objects.requireNonNull(apiUrl) == APIUrls.KASI_HOLIDAYS) {
+            return (T) new KASIResponseHandler(json).handle();
         }
+        return (T) new Object();
     }
 
 }

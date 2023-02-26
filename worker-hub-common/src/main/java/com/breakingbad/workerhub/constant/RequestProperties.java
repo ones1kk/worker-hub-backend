@@ -20,4 +20,5 @@ public enum RequestProperties {
     private final String property;
 
     private final String value;
+
 }
