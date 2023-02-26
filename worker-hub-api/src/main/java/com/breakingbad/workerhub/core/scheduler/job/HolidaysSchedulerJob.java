@@ -7,6 +7,10 @@ import org.springframework.stereotype.Component;
 
 import java.io.IOException;
 import java.time.Year;
+import java.util.List;
+import java.util.stream.Stream;
+
+import static java.util.stream.Collectors.toList;
 
 @Component
 @RequiredArgsConstructor
@@ -23,9 +27,12 @@ public class HolidaysSchedulerJob {
      */
     @Scheduled(cron = "0 15 0 25 12 * ")
     public void saveHolidays() throws IOException {
-        Year year = Year.now().plusYears(1);
+        Year standard = Year.now().plusYears(5);
+        List<Year> years = Stream.iterate(standard, year -> year.plusYears(1))
+                .limit(5)
+                .collect(toList());
 
-        scheduler.saveHolidaysByYears(year);
+        scheduler.saveHolidaysByYears(years);
     }
 
 }

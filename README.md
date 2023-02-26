@@ -25,6 +25,7 @@
 - Git
 - Github Actions
 - Slack(alarm)
+- Docker
 
 ## 개발자
 - [ones1kk](https://github.com/ones1kk)   
@@ -32,7 +33,7 @@
   - DB 설계
   - JPA Model 설계
   - Github Actions 설정
-  - 개발정의서 작성
+  - application properties 보안 설정
 - [MyPottery](https://github.com/MyPottery)
   - DB 설계
   - 회원 기능
@@ -40,3 +41,7 @@
 ## 참고 문서
 
 [개발정의서](https://github.com/worker-hub/worker-hub-backend/blob/master/doc/STATEMENT.md)
+
+## Troubleshooting
+
+[Troubleshooting](https://github.com/worker-hub/worker-hub-backend/blob/master/doc/TROUBLESHOOTING.md)

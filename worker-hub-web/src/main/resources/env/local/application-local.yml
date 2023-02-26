@@ -6,7 +6,6 @@ spring:
   config:
     activate:
       on-profile: local
-    import: application-secret-local.yml
   output:
     ansi:
       enabled: always
@@ -18,8 +17,12 @@ spring:
       time: HH:mm
     servlet:
       load-on-startup: 1
-    path match:
-      matching-strategy: ant_path_matcher
+
+  datasource:
+    url: ENC(6RIQaLvYGtD5hdBOtuwUj47UVsIO53DwSVABt1eNG8PAaa5JFdKcWCXqRMkBfoqC)
+    username: ENC(jpJyaj0mIHQvr+Ovd01laQ==)
+    password: ENC(jpJyaj0mIHQvr+Ovd01laQ==)
+    driver-class-name: com.mysql.cj.jdbc.Driver
 
   jpa:
     database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
@@ -43,3 +46,15 @@ server:
     encoding:
       charset: UTF-8
     context-path: /api
+
+encryption:
+  key: ENC(VKKHCrpa8E73qPtlmBmEiiSrzbDOC1hCGMainARF3t0=)
+
+api:
+  #한국천문연구원
+  kasi:
+    key: ENC(8fRmVX52+eXJ9645mu3V1/8jmMZGJY4Q+dy8udZPEEGSW/WU+1EqPnP7SsPpaNZM79YFSXylgrQTw0kPFD9369TXfzszbbFv5/TyXYOX+zavKVvi5VlzEaH6GG4GWPjhCR0BmMR1mzyPta9jqndH3g==)
+
+jasypt:
+  encryptor:
+    password: ENC(RPcuiJEuZFE4Ti65xIXVBh1sW167wDh/gu9baSuJKnnzGltZEVo9K/mXUpwrGWsG)
