@@ -7,9 +7,9 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public enum APIUrls {
 
-    KASI("http://apis.data.go.kr/B090041/openapi/service/SpcdeInfoService/");
+    KASI_HOLIDAYS("http://apis.data.go.kr/B090041/openapi/service/SpcdeInfoService/getRestDeInfo");
 
-    public static final String KASI_URL = "http://apis.data.go.kr/B090041/openapi/service/SpcdeInfoService/";
+    public static final String KASI_HOLIDAYS_URL = "http://apis.data.go.kr/B090041/openapi/service/SpcdeInfoService/getRestDeInfo";
 
     private final String requestURL;
 
