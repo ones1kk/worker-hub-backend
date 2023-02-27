@@ -1,8 +1,12 @@
 package com.breakingbad.workerhub.core.scheduler;
 
+import com.breakingbad.workerhub.constant.APIUrls;
+import com.breakingbad.workerhub.constant.HttpMethod;
 import com.breakingbad.workerhub.constant.LoggerNames;
-import com.breakingbad.workerhub.core.api.kasi.KasiAPIs;
-import com.breakingbad.workerhub.core.api.kasi.model.KasiResponse;
+import com.breakingbad.workerhub.constant.RequestProperties;
+import com.breakingbad.workerhub.core.api.APICaller;
+import com.breakingbad.workerhub.core.api.APIConfiguration;
+import com.breakingbad.workerhub.core.api.model.KASIResponse;
 import com.breakingbad.workerhub.core.properties.ApiConfigProperties;
 import com.breakingbad.workerhub.domain.holidays.Holidays;
 import com.breakingbad.workerhub.external.domain.holidays.HolidaysService;
@@ -10,24 +14,17 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
-import retrofit2.Call;
-import retrofit2.Response;
 
 import java.io.IOException;
 import java.time.Year;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
-import static com.breakingbad.workerhub.constant.ContentType.JSON;
 
 @Slf4j(topic = LoggerNames.KASI_API)
 @RequiredArgsConstructor
 @Component
 public class HolidayScheduler {
-
-    private final KasiAPIs kasiApis;
 
     private final HolidaysService holidaysService;
 
@@ -58,34 +55,22 @@ public class HolidayScheduler {
         return count > 0L;
     }
 
-    /**
-     * 검토 예정
-     *
-     * @param years
-     * @return
-     */
-    private Map<Year, List<String>> makeYearByMonth(List<Year> years) {
-        Map<Year, List<String>> result = new HashMap<>();
-        years.forEach(year -> result.put(year, MONTHS));
-
-//        years.stream().map(Year::toString)
-//                .collect(collectingAndThen(toMap(year -> year, MONTHS), Collections::unmodifiableMap));
-
-        return result;
-    }
-
 
     private List<Holidays> getHolidays(Year year) throws IOException {
         String serviceKey = apiConfigProperties.getKasi().getKey();
         List<Holidays> holidays = new ArrayList<>();
-        for (String month : MONTHS) {
-            Call<KasiResponse> call = kasiApis.getHolidaysByYearAndMonth(year.toString(), month, JSON.getVar(), serviceKey);
-            Response<KasiResponse> response = call.execute();
 
-            KasiResponse body = response.body();
-            if (body != null) {
-                holidays.addAll(body.toHolidays());
-            }
+        for (String month : MONTHS) {
+            APIConfiguration configure = APIConfiguration.configure(HttpMethod.GET, RequestProperties.JSON,
+                    Map.of("solYear", year.toString(), "solMonth", month,
+                            "_type", "json", "ServiceKey", serviceKey));
+
+            KASIResponse response = APICaller.of(APIUrls.KASI_HOLIDAYS)
+                    .configure(configure)
+                    .call()
+                    .getResponse(KASIResponse.class);
+
+            holidays.addAll(response.toHolidays());
         }
         return holidays;
     }
