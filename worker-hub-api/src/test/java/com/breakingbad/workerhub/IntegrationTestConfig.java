@@ -3,7 +3,6 @@ package com.breakingbad.workerhub;
 import com.breakingbad.workerhub.core.config.AppConfig;
 import com.breakingbad.workerhub.core.config.AuditConfig;
 import com.breakingbad.workerhub.core.config.JasyptConfig;
-import com.breakingbad.workerhub.core.config.RetrofitConfig;
 import com.breakingbad.workerhub.core.properties.ApiConfigProperties;
 import com.ulisesbocchio.jasyptspringboot.annotation.EnableEncryptableProperties;
 import org.springframework.beans.factory.annotation.Value;
@@ -16,7 +15,7 @@ import org.springframework.data.jpa.mapping.JpaMetamodelMappingContext;
 
 import javax.validation.constraints.NotNull;
 
-@Import(value = {AuditConfig.class, RetrofitConfig.class, AppConfig.class, JasyptConfig.class})
+@Import(value = {AuditConfig.class, AppConfig.class, JasyptConfig.class})
 @Configuration
 @EnableEncryptableProperties
 public class IntegrationTestConfig {
