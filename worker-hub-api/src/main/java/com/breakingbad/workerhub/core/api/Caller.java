@@ -1,15 +1,16 @@
-package com.breakingbad.workerhub.core.api.url;
+package com.breakingbad.workerhub.core.api;
 
 import com.breakingbad.workerhub.constant.APIUrls;
 import com.breakingbad.workerhub.constant.RequestProperties;
+import com.breakingbad.workerhub.core.api.handler.APIResponseHandlerFactory;
 import com.breakingbad.workerhub.core.parser.JsonParser;
+import com.breakingbad.workerhub.core.tool.URIBuilder;
 import lombok.RequiredArgsConstructor;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
 import java.net.ProtocolException;
 import java.net.URL;
 import java.util.List;
@@ -22,7 +23,7 @@ public class Caller {
 
     private final APIUrls apiUrl;
 
-    private final APICallerConfiguration configuration;
+    private final APIConfiguration configuration;
 
     public APIResponseHandlerFactory call() throws IOException {
         HttpURLConnection connection = createConnection(configuration);
@@ -39,7 +40,7 @@ public class Caller {
         return new APIResponseHandlerFactory(apiUrl, json);
     }
 
-    private HttpURLConnection createConnection(APICallerConfiguration configuration) throws IOException {
+    private HttpURLConnection createConnection(APIConfiguration configuration) throws IOException {
         String requestURL = apiUrl.getRequestURL();
         Map<String, Object> params = configuration.getParams();
         List<String> paths = configuration.getPaths();
@@ -65,7 +66,7 @@ public class Caller {
         return uriBuilder.getURI();
     }
 
-    private void configureConnection(HttpURLConnection connection, APICallerConfiguration configuration) throws ProtocolException {
+    private void configureConnection(HttpURLConnection connection, APIConfiguration configuration) throws ProtocolException {
         if (configuration.getMethod() != null) {
             connection.setRequestMethod(configuration.getMethod().getValue());
         }

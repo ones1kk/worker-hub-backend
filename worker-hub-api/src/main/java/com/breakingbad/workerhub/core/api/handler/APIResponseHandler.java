@@ -1,4 +1,4 @@
-package com.breakingbad.workerhub.core.api.url;
+package com.breakingbad.workerhub.core.api.handler;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 

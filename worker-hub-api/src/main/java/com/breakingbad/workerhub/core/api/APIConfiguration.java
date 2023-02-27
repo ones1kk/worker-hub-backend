@@ -1,4 +1,4 @@
-package com.breakingbad.workerhub.core.api.url;
+package com.breakingbad.workerhub.core.api;
 
 import com.breakingbad.workerhub.constant.HttpMethod;
 import com.breakingbad.workerhub.constant.RequestProperties;
@@ -13,7 +13,7 @@ import java.util.Map;
 @Getter
 @Builder
 @ToString
-public final class APICallerConfiguration {
+public final class APIConfiguration {
 
     private HttpMethod method;
 
@@ -47,15 +47,15 @@ public final class APICallerConfiguration {
 
     private Boolean useCaches;
 
-    public static APICallerConfiguration configure(HttpMethod method, RequestProperties requestProperties) {
-        return APICallerConfiguration.builder()
+    public static APIConfiguration configure(HttpMethod method, RequestProperties requestProperties) {
+        return APIConfiguration.builder()
                 .method(method)
                 .requestProperties(requestProperties)
                 .build();
     }
 
-    public static APICallerConfiguration configure(HttpMethod method, RequestProperties requestProperties, Map<String, Object> params) {
-        return APICallerConfiguration.builder()
+    public static APIConfiguration configure(HttpMethod method, RequestProperties requestProperties, Map<String, Object> params) {
+        return APIConfiguration.builder()
                 .method(method)
                 .requestProperties(requestProperties)
                 .params(params)

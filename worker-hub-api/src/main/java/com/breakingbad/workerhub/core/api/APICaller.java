@@ -1,4 +1,4 @@
-package com.breakingbad.workerhub.core.api.url;
+package com.breakingbad.workerhub.core.api;
 
 import com.breakingbad.workerhub.constant.APIUrls;
 
@@ -14,7 +14,7 @@ public class APICaller {
         return new APICaller(apiUrl);
     }
 
-    public Caller configure(APICallerConfiguration configuration) {
+    public Caller configure(APIConfiguration configuration) {
         return new Caller(apiUrl, configuration);
     }
 

@@ -1,4 +1,4 @@
-package com.breakingbad.workerhub.core.api.url;
+package com.breakingbad.workerhub.core.api.handler;
 
 import com.breakingbad.workerhub.constant.APIUrls;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -17,7 +17,7 @@ public class APIResponseHandlerFactory {
         if (Objects.requireNonNull(apiUrl) == APIUrls.KASI_HOLIDAYS) {
             return (T) new KASIResponseHandler(json).handle();
         }
-        return (T) new Object();
+        return new CommonResponseHandler<>(json, valueType).handle();
     }
 
 }

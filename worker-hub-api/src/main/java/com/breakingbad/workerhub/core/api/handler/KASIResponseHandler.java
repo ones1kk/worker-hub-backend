@@ -1,6 +1,6 @@
-package com.breakingbad.workerhub.core.api.url;
+package com.breakingbad.workerhub.core.api.handler;
 
-import com.breakingbad.workerhub.core.api.model.KASiResponse;
+import com.breakingbad.workerhub.core.api.model.KASIResponse;
 import com.breakingbad.workerhub.core.parser.JsonParser;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import lombok.RequiredArgsConstructor;
@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Map;
 
 @RequiredArgsConstructor
-public class KASIResponseHandler implements APIResponseHandler<KASiResponse> {
+public class KASIResponseHandler implements APIResponseHandler<KASIResponse> {
 
     private final String json;
 
@@ -30,7 +30,7 @@ public class KASIResponseHandler implements APIResponseHandler<KASiResponse> {
 
     @Override
     @SuppressWarnings("unchecked")
-    public KASiResponse handle() throws JsonProcessingException {
+    public KASIResponse handle() throws JsonProcessingException {
         List<Map<String, Object>> result = new ArrayList<>();
 
         Map<String, Object> map = JsonParser.toMap(json);
@@ -40,7 +40,7 @@ public class KASIResponseHandler implements APIResponseHandler<KASiResponse> {
         int totalCount = (int) body.get(TOTAL_COUNT);
 
         if (totalCount <= 0) {
-            return new KASiResponse();
+            return new KASIResponse();
         }
 
         if (totalCount == 1) {
@@ -58,11 +58,11 @@ public class KASIResponseHandler implements APIResponseHandler<KASiResponse> {
         return convert(result);
     }
 
-    private KASiResponse convert(List<Map<String, Object>> result) {
-        List<KASiResponse.Items> items = new ArrayList<>();
-        KASiResponse kasiResponses = new KASiResponse(items);
+    private KASIResponse convert(List<Map<String, Object>> result) {
+        List<KASIResponse.Items> items = new ArrayList<>();
+        KASIResponse kasiResponses = new KASIResponse(items);
         result.forEach(map ->
-                items.add(new KASiResponse.Items((String) map.get(DATE_NAME), (Integer) map.get(LOC_DATE)))
+                items.add(new KASIResponse.Items((String) map.get(DATE_NAME), (Integer) map.get(LOC_DATE)))
         );
 
         return kasiResponses;
