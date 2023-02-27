@@ -1,4 +1,4 @@
-package com.breakingbad.workerhub.core.api.url;
+package com.breakingbad.workerhub.core.api;
 
 import com.breakingbad.workerhub.constant.HttpMethod;
 import com.breakingbad.workerhub.constant.RequestProperties;
@@ -10,7 +10,7 @@ import java.util.Map;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-class APICallerConfigurationTest {
+class APIConfigurationTest {
 
     @Nested
     @DisplayName("HttpURLConnection의 설정 값을 저장하는 configuration")
@@ -26,7 +26,7 @@ class APICallerConfigurationTest {
             int readTimeout = 60;
 
             // when
-            APICallerConfiguration configuration = APICallerConfiguration.builder()
+            APIConfiguration configuration = APIConfiguration.builder()
                     .method(method)
                     .requestProperties(json)
                     .connectionTimeout(connectionTimeout)
@@ -46,7 +46,7 @@ class APICallerConfigurationTest {
         @DisplayName("클래스에서 제공하는 기본 값 설정 메소드.")
         void configure_default_01() throws Exception {
             // given
-            APICallerConfiguration configuration = APICallerConfiguration.configure(HttpMethod.GET, RequestProperties.JSON);
+            APIConfiguration configuration = APIConfiguration.configure(HttpMethod.GET, RequestProperties.JSON);
 
             // then
             assertThat(configuration).isNotNull()
@@ -59,14 +59,13 @@ class APICallerConfigurationTest {
         @DisplayName("클래스에서 제공하는 기본 값 설정 메소드.")
         void configure_default_02() throws Exception {
             // given
-            APICallerConfiguration configuration = APICallerConfiguration.configure(HttpMethod.GET, RequestProperties.JSON, Map.of("key", "value"));
+            APIConfiguration configuration = APIConfiguration.configure(HttpMethod.GET, RequestProperties.JSON, Map.of("key", "value"));
 
             // then
             assertThat(configuration).isNotNull()
                     .hasFieldOrPropertyWithValue("method", HttpMethod.GET)
                     .hasFieldOrPropertyWithValue("requestProperties", RequestProperties.JSON)
                     .hasFieldOrPropertyWithValue("params", Map.of("key", "value"));
-
         }
 
     }

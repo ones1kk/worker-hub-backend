@@ -1,4 +1,4 @@
-package com.breakingbad.workerhub.core.api.url;
+package com.breakingbad.workerhub.core.tool;
 
 import io.github.ones1kk.assertion.core.exception.AssertException;
 import org.junit.jupiter.api.DisplayName;
