@@ -26,7 +26,7 @@ public class Menu extends IdAuditingEntity {
     @Column(name = "menu_name")
     private String name;
 
-    @Column(name = "menu_description")
+    @Column(name = "menu_description", columnDefinition = "text")
     private String description;
 
     @Column(name = "page_url")

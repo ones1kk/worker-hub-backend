@@ -29,7 +29,7 @@ public class Role extends IdAuditingEntity {
     @Column(name = "role_cde")
     private RoleCode roleCode;
 
-    @Column(name = "role_description")
+    @Column(name = "role_description", columnDefinition = "text")
     private String description;
 
     @Column(name = "approval_yn")
