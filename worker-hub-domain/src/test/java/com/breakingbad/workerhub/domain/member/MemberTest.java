@@ -1,6 +1,7 @@
 package com.breakingbad.workerhub.domain.member;
 
 import com.breakingbad.workerhub.IntegrationTestConfig;
+import com.breakingbad.workerhub.constant.Profiles;
 import com.breakingbad.workerhub.domain.member.repository.MemberRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +16,7 @@ import static org.assertj.core.api.Assertions.assertThat;
  */
 @DataJpaTest
 @Import(IntegrationTestConfig.class)
-@ActiveProfiles("test")
+@ActiveProfiles(Profiles.test)
 class MemberTest {
 
     @Autowired
