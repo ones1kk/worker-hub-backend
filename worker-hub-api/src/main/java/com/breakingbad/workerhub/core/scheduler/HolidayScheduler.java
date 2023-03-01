@@ -9,7 +9,7 @@ import com.breakingbad.workerhub.core.api.APIConfiguration;
 import com.breakingbad.workerhub.core.api.model.KASIResponse;
 import com.breakingbad.workerhub.core.properties.ApiConfigProperties;
 import com.breakingbad.workerhub.domain.holidays.Holidays;
-import com.breakingbad.workerhub.external.domain.holidays.HolidaysService;
+import com.breakingbad.workerhub.internal.domain.holidays.HolidaysInternalService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
@@ -26,7 +26,7 @@ import java.util.Map;
 @Component
 public class HolidayScheduler {
 
-    private final HolidaysService holidaysService;
+    private final HolidaysInternalService holidaysService;
 
     private final ApiConfigProperties apiConfigProperties;
 
