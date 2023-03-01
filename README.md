@@ -42,6 +42,4 @@
 
 [개발정의서](https://github.com/worker-hub/worker-hub-backend/blob/master/doc/STATEMENT.md)
 
-## Troubleshooting
-
 [Troubleshooting](https://github.com/worker-hub/worker-hub-backend/blob/master/doc/TROUBLESHOOTING.md)
