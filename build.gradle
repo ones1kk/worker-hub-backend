@@ -10,7 +10,7 @@ ext {
     commonsLang3Version = "3.12.0"
     commonsCodecVersion = "1.15"
     commonsIoVersion = "2.11.0"
-    assertionsVersion = "0.0.5"
+    assertionsVersion = "0.0.6"
     springdocVersion = "1.6.14"
     querydslVersion = "5.0.0"
     h2Version = "1.4.199"
@@ -91,7 +91,7 @@ subprojects {
     }
 
     tasks.withType(Copy).all {
-        duplicatesStrategy "exclude"
+        duplicatesStrategy = "exclude"
     }
 
     jacoco {
