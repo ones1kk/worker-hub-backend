@@ -1,11 +1,8 @@
-bootJar { enabled = true }
+bootJar { enabled = false }
 jar { enabled = true }
 
 dependencies {
     api project(":worker-hub-domain")
-
-    // Spring MVC
-    api "org.springframework.boot:spring-boot-starter-web"
 
     // Spring Quartz
     api "org.springframework.boot:spring-boot-starter-quartz"
