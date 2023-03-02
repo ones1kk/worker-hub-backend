@@ -30,4 +30,9 @@ public class HolidaysInternalService {
         return holidaysRepository.saveAll(holidays);
     }
 
+    @Transactional
+    public Holidays save(Holidays holidays) {
+        return holidaysRepository.save(holidays);
+    }
+
 }
