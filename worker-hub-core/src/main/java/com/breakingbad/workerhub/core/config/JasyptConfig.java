@@ -4,12 +4,10 @@ import com.ulisesbocchio.jasyptspringboot.annotation.EnableEncryptableProperties
 import org.jasypt.encryption.StringEncryptor;
 import org.jasypt.encryption.pbe.StandardPBEStringEncryptor;
 import org.jasypt.encryption.pbe.config.SimpleStringPBEConfig;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
-
-import javax.validation.constraints.NotNull;
+import org.springframework.core.env.Environment;
 
 import static com.breakingbad.workerhub.constant.Algorithm.BASE256;
 import static com.breakingbad.workerhub.constant.Algorithm.PBEWithMD5AndDES;
@@ -26,7 +24,8 @@ public class JasyptConfig {
 
     @Bean
     @Primary
-    public StringEncryptor jasyptStringEncryptor(@NotNull @Value("${jasypt.encryptor.password}") String key) {
+    public StringEncryptor jasyptStringEncryptor(Environment environment) {
+        String key = environment.getProperty("jasypt.encryptor.password");
         StandardPBEStringEncryptor encryptor = new StandardPBEStringEncryptor();
         SimpleStringPBEConfig config = new SimpleStringPBEConfig();
         config.setPassword(key);
