@@ -135,7 +135,6 @@ subprojects {
     }
 
     test {
-        systemProperty "jasypt.encryptor.password", System.getProperties().get("jasypt.encryptor.password")
         jacoco {
             destinationFile = file("$buildDir/jacoco/jacoco.exec")
         }
