@@ -1,3 +1,5 @@
+import java.nio.file.Files
+
 plugins {
     id "org.springframework.boot" version "2.7.7"
     id "io.spring.dependency-management" version "1.1.0"
@@ -26,6 +28,8 @@ repositories {
 
 bootJar { enabled = false }
 
+def profile = project.hasProperty("profile") ? project.property("profile").toString() : "local"
+
 subprojects {
     group = "com.breakingbad.workerhub"
     version = "1.0.0"
@@ -47,7 +51,6 @@ subprojects {
         }
     }
 
-    def profile = project.hasProperty("profile") ? project.property("profile").toString() : "local"
 
     sourceSets {
         main {
@@ -140,6 +143,15 @@ subprojects {
         }
         useJUnitPlatform()
         finalizedBy "jacocoTestReport"
+
+        // task 실행 시 Jasypt vm option 주입
+        if (profile == "local") {
+            def rootProjectDir = project.rootProject.rootDir.absolutePath
+            def file = file("$rootProjectDir/key.properties")
+            def key = Files.readString(file.toPath())
+            jvmArgs "-Djasypt.encryptor.password=${key}"
+        }
+
     }
 
     task testCoverage(type: Test) {
