@@ -40,6 +40,14 @@ public class Caller {
         return new APIResponseHandlerFactory(apiUrl, json);
     }
 
+    /**
+     * Request body 기능 미지원...
+     * TODO PUT, POST, PATCH Request body 기능 추가
+     *
+     * @param configuration
+     * @return
+     * @throws IOException
+     */
     private HttpURLConnection createConnection(APIConfiguration configuration) throws IOException {
         String requestURL = apiUrl.getRequestURL();
         Map<String, Object> params = configuration.getParams();
