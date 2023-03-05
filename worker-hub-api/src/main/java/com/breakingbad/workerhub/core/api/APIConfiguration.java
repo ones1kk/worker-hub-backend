@@ -62,4 +62,19 @@ public final class APIConfiguration {
                 .build();
     }
 
+    public static APIConfiguration configureGET() {
+        return APIConfiguration.builder()
+                .method(HttpMethod.GET)
+                .requestProperties(RequestProperties.JSON)
+                .build();
+    }
+
+    public static APIConfiguration configureGET(Map<String, Object> params) {
+        return APIConfiguration.builder()
+                .method(HttpMethod.GET)
+                .requestProperties(RequestProperties.JSON)
+                .params(params)
+                .build();
+    }
+
 }
