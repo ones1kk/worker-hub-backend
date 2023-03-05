@@ -43,3 +43,6 @@ logs/
 
 ### docker ###
 docker/db/
+
+### properties ###
+key.properties
