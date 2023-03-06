@@ -1,9 +1,7 @@
 package com.breakingbad.workerhub.core.scheduler;
 
 import com.breakingbad.workerhub.constant.APIUrls;
-import com.breakingbad.workerhub.constant.HttpMethod;
 import com.breakingbad.workerhub.constant.LoggerNames;
-import com.breakingbad.workerhub.constant.RequestProperties;
 import com.breakingbad.workerhub.core.api.APICaller;
 import com.breakingbad.workerhub.core.api.APIConfiguration;
 import com.breakingbad.workerhub.core.api.model.KASIResponse;
@@ -55,15 +53,14 @@ public class HolidayScheduler {
         return count > 0L;
     }
 
-
     private List<Holidays> getHolidays(Year year) throws IOException {
         String serviceKey = apiConfigProperties.getKasi().getKey();
         List<Holidays> holidays = new ArrayList<>();
 
         for (String month : MONTHS) {
-            APIConfiguration configure = APIConfiguration.configure(HttpMethod.GET, RequestProperties.JSON,
-                    Map.of("solYear", year.toString(), "solMonth", month,
-                            "_type", "json", "ServiceKey", serviceKey));
+            APIConfiguration configure = APIConfiguration.configureGET(Map.of("solYear", year.toString(),
+                    "solMonth", month, "_type", "json",
+                    "ServiceKey", serviceKey));
 
             KASIResponse response = APICaller.of(APIUrls.KASI_HOLIDAYS)
                     .configure(configure)

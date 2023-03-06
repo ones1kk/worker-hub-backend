@@ -7,6 +7,7 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import java.time.LocalDate;
+import java.time.Month;
 import java.time.Year;
 import java.util.List;
 
@@ -17,5 +18,7 @@ public interface HolidaysRepository extends JpaRepository<Holidays, LocalDate> {
 
     @Query(value = "select count(h) from holidays h where h.year in :years")
     Long findCountByYears(@Param(value = "years") List<Year> years);
+
+    List<Holidays> findAllByYearAndMonth(@Param("year") Year year, @Param("month") Month month);
 
 }
