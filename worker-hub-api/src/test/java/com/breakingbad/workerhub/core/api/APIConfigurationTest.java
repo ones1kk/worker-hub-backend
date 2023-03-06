@@ -39,33 +39,53 @@ class APIConfigurationTest {
                     .hasFieldOrPropertyWithValue("requestProperties", RequestProperties.JSON)
                     .hasFieldOrPropertyWithValue("connectionTimeout", 20)
                     .hasFieldOrPropertyWithValue("readTimeout", 60);
-
         }
 
         @Test
         @DisplayName("클래스에서 제공하는 기본 값 설정 메소드.")
         void configure_default_01() throws Exception {
-            // given
             APIConfiguration configuration = APIConfiguration.configure(HttpMethod.GET, RequestProperties.JSON);
 
-            // then
             assertThat(configuration).isNotNull()
                     .hasFieldOrPropertyWithValue("method", HttpMethod.GET)
                     .hasFieldOrPropertyWithValue("requestProperties", RequestProperties.JSON);
-
         }
 
         @Test
         @DisplayName("클래스에서 제공하는 기본 값 설정 메소드.")
         void configure_default_02() throws Exception {
-            // given
             APIConfiguration configuration = APIConfiguration.configure(HttpMethod.GET, RequestProperties.JSON, Map.of("key", "value"));
 
-            // then
             assertThat(configuration).isNotNull()
                     .hasFieldOrPropertyWithValue("method", HttpMethod.GET)
                     .hasFieldOrPropertyWithValue("requestProperties", RequestProperties.JSON)
                     .hasFieldOrPropertyWithValue("params", Map.of("key", "value"));
+        }
+
+        @Nested
+        @DisplayName("APIConfiguration 클래스에서 제공해주는 HttpMethod별 기본 정적 메소드")
+        class StaticMethodTest {
+
+            @Test
+            @DisplayName("파라미터가 없는 configureGET() 테스트 메소드")
+            void configureGET_no_param() throws Exception {
+                APIConfiguration configuration = APIConfiguration.configureGET();
+
+                assertThat(configuration).isNotNull()
+                        .hasFieldOrPropertyWithValue("method", HttpMethod.GET)
+                        .hasFieldOrPropertyWithValue("requestProperties", RequestProperties.JSON);
+            }
+            @Test
+            @DisplayName("파라미터가 있는 configureGET() 테스트 메소드")
+            void configureGET_has_param() throws Exception {
+                APIConfiguration configuration = APIConfiguration.configureGET(Map.of("key", "value"));
+
+                assertThat(configuration).isNotNull()
+                        .hasFieldOrPropertyWithValue("method", HttpMethod.GET)
+                        .hasFieldOrPropertyWithValue("requestProperties", RequestProperties.JSON)
+                        .hasFieldOrPropertyWithValue("params", Map.of("key", "value"));
+            }
+
         }
 
     }
