@@ -1,3 +1,5 @@
+import java.nio.file.Files
+
 plugins {
     id "org.springframework.boot" version "2.7.7"
     id "io.spring.dependency-management" version "1.1.0"
@@ -10,7 +12,7 @@ ext {
     commonsLang3Version = "3.12.0"
     commonsCodecVersion = "1.15"
     commonsIoVersion = "2.11.0"
-    assertionsVersion = "0.0.5"
+    assertionsVersion = "0.0.6"
     springdocVersion = "1.6.14"
     querydslVersion = "5.0.0"
     h2Version = "1.4.199"
@@ -25,6 +27,8 @@ repositories {
 }
 
 bootJar { enabled = false }
+
+def profile = project.hasProperty("profile") ? project.property("profile").toString() : "local"
 
 subprojects {
     group = "com.breakingbad.workerhub"
@@ -47,7 +51,6 @@ subprojects {
         }
     }
 
-    def profile = project.hasProperty("profile") ? project.property("profile").toString() : "local"
 
     sourceSets {
         main {
@@ -91,7 +94,7 @@ subprojects {
     }
 
     tasks.withType(Copy).all {
-        duplicatesStrategy "exclude"
+        duplicatesStrategy = "exclude"
     }
 
     jacoco {
@@ -135,12 +138,20 @@ subprojects {
     }
 
     test {
-        systemProperty "jasypt.encryptor.password", System.getProperties().get("jasypt.encryptor.password")
         jacoco {
             destinationFile = file("$buildDir/jacoco/jacoco.exec")
         }
         useJUnitPlatform()
         finalizedBy "jacocoTestReport"
+
+        // task 실행 시 Jasypt vm option 주입
+        if (profile == "local") {
+            def rootProjectDir = project.rootProject.rootDir.absolutePath
+            def file = file("$rootProjectDir/key.properties")
+            def key = Files.readString(file.toPath())
+            jvmArgs "-Djasypt.encryptor.password=${key}"
+        }
+
     }
 
     task testCoverage(type: Test) {

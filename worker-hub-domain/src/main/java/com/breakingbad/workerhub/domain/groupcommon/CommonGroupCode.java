@@ -23,7 +23,7 @@ public class CommonGroupCode extends IdAuditingEntity {
     @Column(name = "group_code_name")
     private String name;
 
-    @Column(name = "group_code_description")
+    @Column(name = "group_code_description", columnDefinition = "text")
     private String description;
 
     @Column(name = "sort_no")

@@ -1,7 +1,15 @@
 package com.breakingbad.workerhub.domain.constant;
 
+import io.github.ones1kk.assertion.core.Asserts;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
+
+import java.util.Collections;
+import java.util.EnumSet;
+import java.util.Map;
+
+import static java.util.stream.Collectors.collectingAndThen;
+import static java.util.stream.Collectors.toMap;
 
 @Getter
 @RequiredArgsConstructor
@@ -26,4 +34,21 @@ public enum LeaveClassification {
     private final String value;
 
     private final String description;
+
+    private static final Map<String, LeaveClassification> $CODE_LOOKUP = EnumSet.allOf(LeaveClassification.class).stream()
+            .collect(collectingAndThen(toMap(it -> it.value, it -> it), Collections::unmodifiableMap));
+
+    public static boolean contains(String value) {
+        return $CODE_LOOKUP.containsKey(value);
+    }
+
+    public static LeaveClassification from(String value) {
+        Asserts.that(contains(value)).as("'LeaveClassification' doesn't contain value of '{}'", value).isTrue();
+        return $CODE_LOOKUP.get(value);
+    }
+
+    @Override
+    public String toString() {
+        return value;
+    }
 }

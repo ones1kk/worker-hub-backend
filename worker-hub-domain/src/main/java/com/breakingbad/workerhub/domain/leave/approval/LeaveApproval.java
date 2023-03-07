@@ -32,4 +32,12 @@ public class LeaveApproval extends IdAuditingEntity {
     @JoinColumn(name = "leave_requst_id")
     private LeaveRequest leaveRequest;
 
+    public LeaveApproval(LeaveRequest leaveRequest, YesOrNo approvalYn) {
+        this.leaveRequest = leaveRequest;
+        this.approvalYn = approvalYn;
+    }
+
+    public static LeaveApproval createLeaveApproval(LeaveRequest leaveRequest, YesOrNo approvalYn) {
+        return new LeaveApproval(leaveRequest, approvalYn);
+    }
 }

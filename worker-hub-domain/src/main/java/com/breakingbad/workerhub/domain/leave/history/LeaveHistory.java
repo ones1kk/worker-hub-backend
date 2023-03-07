@@ -35,8 +35,17 @@ public class LeaveHistory {
     @JoinColumn(name = "leave_approval_id")
     private LeaveApproval leaveApproval;
 
+    public LeaveHistory(LeaveApproval leaveApproval) {
+        this.leaveApproval = leaveApproval;
+    }
+
     @PrePersist
     public void prePersist() {
         createAt = LocalDateTime.now();
+    }
+
+
+    public static LeaveHistory createLeaveHistory(LeaveApproval leaveApproval) {
+        return new LeaveHistory(leaveApproval);
     }
 }

@@ -32,7 +32,7 @@ public class CommonCode extends IdAuditingEntity {
     @Column(name = "code_name")
     private String name;
 
-    @Column(name = "code_description")
+    @Column(name = "code_description", columnDefinition = "text")
     private String description;
 
     @Embedded

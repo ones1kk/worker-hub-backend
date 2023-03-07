@@ -54,6 +54,3 @@ api:
   #한국천문연구원
   kasi:
     key: ENC(8fRmVX52+eXJ9645mu3V1/8jmMZGJY4Q+dy8udZPEEGSW/WU+1EqPnP7SsPpaNZM79YFSXylgrQTw0kPFD9369TXfzszbbFv5/TyXYOX+zavKVvi5VlzEaH6GG4GWPjhCR0BmMR1mzyPta9jqndH3g==)
-jasypt:
-  encryptor:
-    password: ENC(RPcuiJEuZFE4Ti65xIXVBh1sW167wDh/gu9baSuJKnnzGltZEVo9K/mXUpwrGWsG)

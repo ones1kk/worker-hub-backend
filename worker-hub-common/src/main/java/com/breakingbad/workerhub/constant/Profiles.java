@@ -23,6 +23,14 @@ public enum Profiles {
 
     TEST("test");
 
+    public static final String prd = "prd";
+
+    public static final String dev = "dev";
+
+    public static final String local = "local";
+
+    public static final String test = "test";
+
     private final String name;
 
     private static final Map<String, Profiles> $CODE_LOOKUP = EnumSet.allOf(Profiles.class).stream()

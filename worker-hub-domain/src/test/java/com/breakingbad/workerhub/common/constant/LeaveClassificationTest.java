@@ -58,4 +58,31 @@ class LeaveClassificationTest {
         }
     }
 
+    @Nested
+    @DisplayName("from() 테스트")
+    class FromTest {
+        @Test
+        @DisplayName("from() 테스트")
+        void from() throws Exception {
+            LeaveClassification code1 = LeaveClassification.from("PAID_LEAVE");
+            LeaveClassification code2 = LeaveClassification.from("ANNUAL_LEAVE");
+            LeaveClassification code3 = LeaveClassification.from("MONTHLY_LEAVE");
+            LeaveClassification code4 = LeaveClassification.from("SICK_LEAVE");
+            LeaveClassification code5 = LeaveClassification.from("PERSONAL_LEAVE");
+            LeaveClassification code6 = LeaveClassification.from("MATERNITY_LEAVE");
+            LeaveClassification code7 = LeaveClassification.from("MORNING_LEAVE");
+            LeaveClassification code8 = LeaveClassification.from("AFTERNOON_LEAVE");
+
+            assertThat(code1).isEqualTo(LeaveClassification.LEAVE_CLASSIFICATION_CODE_01);
+            assertThat(code2).isEqualTo(LeaveClassification.LEAVE_CLASSIFICATION_CODE_02);
+            assertThat(code3).isEqualTo(LeaveClassification.LEAVE_CLASSIFICATION_CODE_03);
+            assertThat(code4).isEqualTo(LeaveClassification.LEAVE_CLASSIFICATION_CODE_04);
+            assertThat(code5).isEqualTo(LeaveClassification.LEAVE_CLASSIFICATION_CODE_05);
+            assertThat(code6).isEqualTo(LeaveClassification.LEAVE_CLASSIFICATION_CODE_06);
+            assertThat(code7).isEqualTo(LeaveClassification.LEAVE_CLASSIFICATION_CODE_07);
+            assertThat(code8).isEqualTo(LeaveClassification.LEAVE_CLASSIFICATION_CODE_08);
+        }
+
+    }
+
 }

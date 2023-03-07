@@ -27,7 +27,7 @@ public class Department extends IdAuditingEntity {
     @Column(name = "department_name", nullable = false)
     private String name;
 
-    @Column(name = "department_description")
+    @Column(name = "department_description", columnDefinition = "text")
     private String description;
 
     @Column(name = "department_level", nullable = false)

@@ -24,7 +24,7 @@ public class Rank {
     @Column(name = "rank_name", nullable = false)
     private String name;
 
-    @Column(name = "rank_description")
+    @Column(name = "rank_description", columnDefinition = "text")
     private String description;
 
     @Column(name = "sort_no", nullable = false)

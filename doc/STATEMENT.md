@@ -83,8 +83,7 @@
 
 ### resources
 1. Application Property에 대한 내용 정의는 classpath:/env/${profile}/application-${profile}.yml 파일에 정의한다.
-2. Public Repository 특성상 민감한 정보가 담긴 내용은 classpath:/env/${profile}/application-secret-${profile}.yml 파일에 정의한다.
-3. 해당 파일에 작성된 내용은 classpath:/application-secret-sample.yml을 작성한다.
+2. 민감한 데이터는 [Jasypt](http://www.jasypt.org/)([Github](https://github.com/ulisesbocchio/jasypt-spring-boot))를 활용하여 암.복호화 한다.
 
 ### Test Code
 1. Test Coverage 70% 이상을 목표로 작성한다.
@@ -112,8 +111,6 @@
       1. 해당 브런치로 Direct Push를 금하며 PR을 통한 Merge가 이루어진다.
    2. Require status checks to pass before merging.
       1. 테스트 결과 이상이 없을 시에만 Merge가 가능하다.
-   3. Require signed commits.
-      1. Github에서 발행 된 GPG Key를 가진 사람이 커밋할 수 있다.
 
 2. develop: 개인이 작업한 코드들을 Merge 하는 브런치.
    1. Require a pull request before merging.
