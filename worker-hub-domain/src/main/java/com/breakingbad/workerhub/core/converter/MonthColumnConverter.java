@@ -8,7 +8,7 @@ import java.time.Month;
 
 @Convert
 @Component
-public class MonthConverter implements AttributeConverter<Month, String> {
+public class MonthColumnConverter implements AttributeConverter<Month, String> {
 
     @Override
     public String convertToDatabaseColumn(Month attribute) {

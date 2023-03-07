@@ -1,11 +1,10 @@
 package com.breakingbad.workerhub.domain.holidays;
 
-import com.breakingbad.workerhub.core.converter.MonthConverter;
+import com.breakingbad.workerhub.core.converter.MonthColumnConverter;
 import com.breakingbad.workerhub.core.converter.YearConverter;
 import com.breakingbad.workerhub.domain.audting.IdAuditingEntity;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.time.LocalDate;
@@ -33,7 +32,7 @@ public class Holidays extends IdAuditingEntity {
     private Year year;
 
     @Column(name = "month")
-    @Convert(converter = MonthConverter.class)
+    @Convert(converter = MonthColumnConverter.class)
     private Month month;
 
     @Transient
