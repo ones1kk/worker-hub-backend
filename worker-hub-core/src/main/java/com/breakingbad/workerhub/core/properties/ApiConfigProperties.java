@@ -1,20 +1,29 @@
 package com.breakingbad.workerhub.core.properties;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.boot.context.properties.ConstructorBinding;
 
 @Getter
-@AllArgsConstructor
 @ConfigurationProperties(prefix = "api")
 public class ApiConfigProperties {
 
     private Kasi kasi;
 
+    @ConstructorBinding
+    public ApiConfigProperties(Kasi kasi) {
+        this.kasi = kasi;
+    }
+
     @Getter
-    @AllArgsConstructor
+
     public static class Kasi {
         private String key;
+
+        @ConstructorBinding
+        public Kasi(String key) {
+            this.key = key;
+        }
     }
 
 }
