@@ -25,5 +25,4 @@ public class LeaveApprovalInternalService {
         return approvalRepository.saveAll(leaveApprovals);
     }
 
-
 }

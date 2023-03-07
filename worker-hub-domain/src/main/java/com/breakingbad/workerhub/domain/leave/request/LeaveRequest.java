@@ -2,7 +2,7 @@ package com.breakingbad.workerhub.domain.leave.request;
 
 import com.breakingbad.workerhub.domain.audting.IdAuditingEntity;
 import com.breakingbad.workerhub.domain.constant.LeaveClassification;
-import com.breakingbad.workerhub.domain.constant.YesOrNo;
+import com.breakingbad.workerhub.domain.employee.Employee;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -10,6 +10,7 @@ import javax.persistence.*;
 import java.time.LocalDate;
 
 import static javax.persistence.EnumType.STRING;
+import static javax.persistence.FetchType.LAZY;
 import static javax.persistence.GenerationType.IDENTITY;
 import static lombok.AccessLevel.PROTECTED;
 
@@ -37,7 +38,8 @@ public class LeaveRequest extends IdAuditingEntity {
     @Column(name = "leave_end_date")
     private LocalDate leaveEndDate;
 
-    @Column(name = "approval_yn")
-    @Enumerated(value = STRING)
-    private YesOrNo approvalYn;
+    @ManyToOne(fetch = LAZY)
+    @JoinColumn(name = "employee_id")
+    private Employee employee;
+
 }

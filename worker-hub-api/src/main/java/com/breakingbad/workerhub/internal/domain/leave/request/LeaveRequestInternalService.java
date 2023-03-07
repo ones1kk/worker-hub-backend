@@ -1,6 +1,7 @@
 package com.breakingbad.workerhub.internal.domain.leave.request;
 
-import com.breakingbad.workerhub.core.event.LeaveRequestEventHandler;
+import com.breakingbad.workerhub.core.event.leave.LeaveApprovalEvent;
+import com.breakingbad.workerhub.domain.constant.YesOrNo;
 import com.breakingbad.workerhub.domain.leave.request.LeaveRequest;
 import com.breakingbad.workerhub.domain.leave.request.repository.LeaveRequestRepository;
 import com.breakingbad.workerhub.exception.NotFoundEntityException;
@@ -20,6 +21,10 @@ public class LeaveRequestInternalService {
 
     private final LeaveRequestRepository leaveRequestRepository;
 
+    public List<LeaveRequest> findAll() {
+        return leaveRequestRepository.findAll();
+    }
+
     public LeaveRequest findById(Long id) {
         return leaveRequestRepository.findById(id)
                 .orElseThrow(() -> new NotFoundEntityException("존재하지 않은 휴가 신청입니다."));
@@ -35,17 +40,16 @@ public class LeaveRequestInternalService {
         return leaveRequestRepository.saveAll(leaveRequests);
     }
 
-    @Transactional
     public void approve(Long id) {
         LeaveRequest leaveRequest = findById(id);
-        eventPublisher.publishEvent(leaveRequest);
-//        leaveRequestEventHandler.approve(leaveRequest);
+        LeaveApprovalEvent event = LeaveApprovalEvent.createEvent(leaveRequest, YesOrNo.Y);
+        eventPublisher.publishEvent(event);
     }
 
-    @Transactional
     public void refuse(Long id) {
         LeaveRequest leaveRequest = findById(id);
-//        leaveRequestEventHandler.refuse(leaveRequest);
+        LeaveApprovalEvent event = LeaveApprovalEvent.createEvent(leaveRequest, YesOrNo.N);
+        eventPublisher.publishEvent(event);
     }
 
 }
