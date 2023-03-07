@@ -8,7 +8,7 @@ import org.springframework.boot.context.properties.ConstructorBinding;
 @ConfigurationProperties(prefix = "api")
 public class ApiConfigProperties {
 
-    private Kasi kasi;
+    private final Kasi kasi;
 
     @ConstructorBinding
     public ApiConfigProperties(Kasi kasi) {
@@ -18,7 +18,7 @@ public class ApiConfigProperties {
     @Getter
 
     public static class Kasi {
-        private String key;
+        private final String key;
 
         @ConstructorBinding
         public Kasi(String key) {

@@ -1,6 +1,5 @@
 package com.breakingbad.workerhub.domain.constant;
 
-import com.breakingbad.workerhub.constant.Profiles;
 import io.github.ones1kk.assertion.core.Asserts;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;

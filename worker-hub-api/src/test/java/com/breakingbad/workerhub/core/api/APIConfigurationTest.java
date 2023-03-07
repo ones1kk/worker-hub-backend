@@ -75,6 +75,7 @@ class APIConfigurationTest {
                         .hasFieldOrPropertyWithValue("method", HttpMethod.GET)
                         .hasFieldOrPropertyWithValue("requestProperties", RequestProperties.JSON);
             }
+
             @Test
             @DisplayName("파라미터가 있는 configureGET() 테스트 메소드")
             void configureGET_has_param() throws Exception {
