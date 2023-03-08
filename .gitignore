@@ -45,4 +45,4 @@ logs/
 docker/db/
 
 ### properties ###
-key.properties
+password.txt
