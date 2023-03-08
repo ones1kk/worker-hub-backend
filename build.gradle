@@ -1,4 +1,5 @@
 import java.nio.file.Files
+import java.nio.file.Paths
 
 plugins {
     id "org.springframework.boot" version "2.7.7"
@@ -147,9 +148,11 @@ subprojects {
         // task 실행 시 Jasypt vm option 주입
         if (profile == "local") {
             def rootProjectDir = project.rootProject.rootDir.absolutePath
-            def file = file("$rootProjectDir/password.txt")
-            def key = Files.readString(file.toPath())
+            def path = Paths.get("$rootProjectDir/password.txt")
+            def reader = Files.newBufferedReader(path)
+            def key = reader.readLine()
             jvmArgs "-Djasypt.encryptor.password=${key}"
+            reader.close()
         }
 
     }
