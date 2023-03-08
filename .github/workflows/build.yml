@@ -21,10 +21,10 @@ jobs:
         run: chmod +x gradlew
 
       - name: Create file with content
-        run: echo ${{ secrets.JASYPT_PASSWORD }} > password.txt \
-          sudo find . -name password.txt \
-          pwd \
-          sudo find / -name password.txt 
+        run: echo ${{ secrets.JASYPT_PASSWORD }} > password.txt |
+          sudo find . -name password.txt |
+          pwd |
+          ls -al 
 
       - name: Build gradle
         run: ./gradlew build
