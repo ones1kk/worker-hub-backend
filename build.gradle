@@ -147,7 +147,7 @@ subprojects {
         // task 실행 시 Jasypt vm option 주입
         if (profile == "local") {
             def rootProjectDir = project.rootProject.rootDir.absolutePath
-            def file = file("$rootProjectDir/key.properties")
+            def file = file("$rootProjectDir/password.txt")
             def key = Files.readString(file.toPath())
             jvmArgs "-Djasypt.encryptor.password=${key}"
         }
