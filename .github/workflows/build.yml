@@ -20,11 +20,8 @@ jobs:
       - name: Grant execute permission for gradlew
         run: chmod +x gradlew
 
-      - name: Create password.txt file
-        uses: actions/create-file@v1
-        with:
-          path: 'password.txt'
-          content: ${{ secrets.JASYPT_PASSWORD }}
+      - name: Create file with content
+        run: echo ${{ secrets.JASYPT_PASSWORD }} > password.txt
 
       - name: Build gradle
         run: ./gradlew build
