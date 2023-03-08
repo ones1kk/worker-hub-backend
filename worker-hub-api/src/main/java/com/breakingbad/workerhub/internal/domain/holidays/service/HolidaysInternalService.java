@@ -1,4 +1,4 @@
-package com.breakingbad.workerhub.internal.domain.holidays;
+package com.breakingbad.workerhub.internal.domain.holidays.service;
 
 import com.breakingbad.workerhub.domain.holidays.Holidays;
 import com.breakingbad.workerhub.domain.holidays.repository.HolidaysRepository;

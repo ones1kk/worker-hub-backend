@@ -1,4 +1,4 @@
-package com.breakingbad.workerhub.internal.domain.leave.history;
+package com.breakingbad.workerhub.internal.domain.leave.history.service;
 
 import com.breakingbad.workerhub.domain.leave.history.LeaveHistory;
 import com.breakingbad.workerhub.domain.leave.history.repsoitory.LeaveHistoryRepository;

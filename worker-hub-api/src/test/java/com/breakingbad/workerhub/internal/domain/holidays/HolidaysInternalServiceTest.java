@@ -4,6 +4,7 @@ import com.breakingbad.workerhub.IntegrationTestConfig;
 import com.breakingbad.workerhub.constant.Profiles;
 import com.breakingbad.workerhub.domain.holidays.Holidays;
 import com.breakingbad.workerhub.domain.holidays.repository.HolidaysRepository;
+import com.breakingbad.workerhub.internal.domain.holidays.service.HolidaysInternalService;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;

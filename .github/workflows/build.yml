@@ -21,13 +21,10 @@ jobs:
         run: chmod +x gradlew
 
       - name: Create file with content
-        run: echo ${{ secrets.JASYPT_PASSWORD }} > password.txt |
-          sudo find . -name password.txt |
-          pwd |
-          ls -al 
+        run: echo ${{ secrets.JASYPT_PASSWORD }} > password.txt
 
       - name: Build gradle
-        run: ./gradlew build
+        run: ./gradlew build -P=local
 
       - name: Merge jacoco reports
         run: ./gradlew jacocoRootReport    

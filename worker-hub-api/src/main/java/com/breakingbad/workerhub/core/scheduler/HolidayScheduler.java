@@ -7,7 +7,7 @@ import com.breakingbad.workerhub.core.api.APIConfiguration;
 import com.breakingbad.workerhub.core.api.model.KASIResponse;
 import com.breakingbad.workerhub.core.properties.ApiConfigProperties;
 import com.breakingbad.workerhub.domain.holidays.Holidays;
-import com.breakingbad.workerhub.internal.domain.holidays.HolidaysInternalService;
+import com.breakingbad.workerhub.internal.domain.holidays.service.HolidaysInternalService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;

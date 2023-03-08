@@ -1,4 +1,4 @@
-package com.breakingbad.workerhub.internal.domain.leave.request;
+package com.breakingbad.workerhub.internal.domain.leave.request.service;
 
 import com.breakingbad.workerhub.core.event.leave.LeaveApprovalEvent;
 import com.breakingbad.workerhub.domain.constant.YesOrNo;

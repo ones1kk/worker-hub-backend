@@ -1,4 +1,4 @@
-package com.breakingbad.workerhub.internal.domain.leave.approval;
+package com.breakingbad.workerhub.internal.domain.leave.approval.service;
 
 import com.breakingbad.workerhub.domain.leave.approval.LeaveApproval;
 import com.breakingbad.workerhub.domain.leave.approval.repository.LeaveApprovalRepository;
