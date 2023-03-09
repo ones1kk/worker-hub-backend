@@ -16,7 +16,6 @@ public class ApiConfigProperties {
     }
 
     @Getter
-
     public static class Kasi {
         private final String key;
 
